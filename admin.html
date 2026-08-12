@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت نتایج | المپیاد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#121c30; --panel-2:#16223a; --line:#223154;
+    --text:#eef1f7; --text-dim:#8d99b4; --gold:#e8b84b; --green:#4ade80; --red:#ef4444;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:'Vazirmatn',sans-serif; padding:20px 14px 60px; }
+  .wrap{ max-width: 980px; margin:0 auto; }
+
+  /* ---- login gate ---- */
+  #gate{ min-height:80vh; display:flex; align-items:center; justify-content:center; }
+  .gate-box{
+    background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    padding:32px 26px; width:100%; max-width:340px; text-align:center;
+  }
+  .gate-box h1{ font-size:16px; margin:0 0 6px; }
+  .gate-box p{ font-size:12px; color:var(--text-dim); margin:0 0 20px; }
+  .gate-box input{
+    width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--text); font-family:inherit; font-size:14px; margin-bottom:12px;
+    text-align:center;
+  }
+  .gate-box button, .btn{
+    width:100%; padding:12px 14px; border-radius:10px; border:none; cursor:pointer;
+    background:var(--gold); color:#1a1305; font-weight:700; font-family:inherit; font-size:14px;
+  }
+  .gate-err{ color:var(--red); font-size:12px; margin-top:10px; min-height:14px; }
+
+  /* ---- admin shell ---- */
+  #admin{ display:none; }
+  .top-row{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+  .top-title{ font-size:18px; font-weight:800; }
+  .top-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+  .btn-sm{
+    padding:9px 14px; border-radius:9px; border:1px solid var(--line); background:var(--panel-2);
+    color:var(--text); font-family:inherit; font-size:12.5px; cursor:pointer; font-weight:600;
+  }
+  .btn-sm.gold{ background:var(--gold); color:#1a1305; border-color:var(--gold); }
+  .btn-sm.danger{ border-color:var(--red); color:#fca5a5; }
+  input[type=file]{ display:none; }
+
+  .save-status{ font-size:11.5px; color:var(--green); min-height:16px; margin-bottom:14px; }
+
+  .tabs{ display:flex; gap:8px; overflow-x:auto; margin-bottom:18px; padding-bottom:4px; }
+  .tab{
+    flex:0 0 auto; padding:8px 16px; border-radius:999px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--text-dim); cursor:pointer; font-size:13px; font-weight:600;
+  }
+  .tab.active{ background:var(--gold); border-color:var(--gold); color:#1a1305; }
+
+  .panel{ display:none; }
+  .panel.active{ display:block; }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:16px; }
+  .card h3{ margin:0 0 12px; font-size:14px; }
+
+  .row{ display:grid; grid-template-columns: 1.6fr .8fr .6fr .6fr .6fr .6fr auto; gap:8px; align-items:center; margin-bottom:8px; }
+  .row input{
+    width:100%; padding:8px 9px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--text); font-family:inherit; font-size:12.5px;
+  }
+  .row-label{ display:none; }
+  .col-head{ display:grid; grid-template-columns: 1.6fr .8fr .6fr .6fr .6fr .6fr auto; gap:8px; font-size:10.5px; color:var(--text-dim); margin-bottom:6px; padding:0 2px; }
+  .del-btn{
+    background:none; border:1px solid var(--red); color:#fca5a5; border-radius:8px; cursor:pointer;
+    padding:8px 10px; font-size:11px;
+  }
+  .add-row-btn{ margin-top:6px; }
+
+  .group-card{ background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:12px; margin-bottom:12px; }
+  .group-card h4{ margin:0 0 10px; font-size:12.5px; color:var(--gold); }
+  .g-row{ display:grid; grid-template-columns: 1.4fr .5fr .5fr .5fr .5fr .6fr .5fr .5fr auto; gap:6px; margin-bottom:6px; align-items:center; }
+  .g-row input[type=text], .g-row input[type=number]{
+    width:100%; padding:7px 8px; border-radius:7px; border:1px solid var(--line);
+    background:var(--panel); color:var(--text); font-family:inherit; font-size:11.5px;
+  }
+  .g-row label.q-lbl{ display:flex; align-items:center; gap:4px; font-size:10px; color:var(--text-dim); }
+  .g-head{ display:grid; grid-template-columns: 1.4fr .5fr .5fr .5fr .5fr .6fr .5fr .5fr auto; gap:6px; font-size:9.5px; color:var(--text-dim); margin-bottom:5px; }
+
+  .match-row{ display:grid; grid-template-columns: 1.3fr .5fr auto 1.3fr .5fr; gap:6px; align-items:center; margin-bottom:6px; }
+  .match-row .vs{ text-align:center; font-size:11px; color:var(--text-dim); }
+  .match-row input{
+    padding:7px 8px; border-radius:7px; border:1px solid var(--line);
+    background:var(--panel); color:var(--text); font-family:inherit; font-size:11.5px; width:100%;
+  }
+  .match-extra{ grid-column: 1 / -1; margin-top:4px; }
+  .match-extra input{ font-size:10.5px; }
+  .subhead{ font-size:11px; color:var(--text-dim); margin: 14px 0 8px; }
+
+  @media (max-width: 720px){
+    .row, .col-head{ grid-template-columns: 1fr 1fr; }
+    .col-head span:nth-child(n+3){ display:none; }
+    .row input:nth-child(n+3){ grid-column: span 1; }
+    .g-row, .g-head{ grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== LOGIN GATE ===================== -->
+  <div id="gate">
+    <div class="gate-box">
+      <h1>پنل مدیریت نتایج المپیاد</h1>
+      <p>برای ورود، رمز عبور را وارد کنید</p>
+      <input id="pwInput" type="password" placeholder="رمز عبور" onkeydown="if(event.key==='Enter')tryLogin()">
+      <button onclick="tryLogin()">ورود</button>
+      <div class="gate-err" id="gateErr"></div>
+    </div>
+  </div>
+
+  <!-- ===================== ADMIN PANEL ===================== -->
+  <div id="admin" class="wrap">
+    <div class="top-row">
+      <div class="top-title">پنل مدیریت نتایج</div>
+      <div class="top-actions">
+        <label class="btn-sm" for="fileInput">📂 بارگذاری data.json</label>
+        <input id="fileInput" type="file" accept=".json,application/json" onchange="loadFile(event)">
+        <button class="btn-sm" onclick="copyJSON()">📋 کپی JSON</button>
+        <button class="btn-sm gold" onclick="downloadJSON()">⬇ دانلود data.json</button>
+      </div>
+    </div>
+    <div class="save-status" id="saveStatus"></div>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="panels"></div>
+  </div>
+
+<script>
+  /* ================= AUTH (client-side gate — for casual protection only) ================= */
+  const ADMIN_PASSWORD = 'olympiad17'; // ← این رمز را عوض کنید
+
+  function tryLogin(){
+    const val = document.getElementById('pwInput').value;
+    if (val === ADMIN_PASSWORD){
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('admin').style.display = 'block';
+      sessionStorage.setItem('olympiad_admin_ok', '1');
+      init();
+    } else {
+      document.getElementById('gateErr').textContent = 'رمز عبور اشتباه است';
+    }
+  }
+  if (sessionStorage.getItem('olympiad_admin_ok') === '1'){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('admin').style.display = 'block';
+    window.addEventListener('DOMContentLoaded', init);
+  }
+
+  /* ================= DATA ================= */
+  let DATA = { teams: [], sports: [] };
+
+  function init(){
+    fetch('data.json', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(json => { DATA = json; buildTabs(); })
+      .catch(() => { buildTabs(); status('فایل data.json پیدا نشد — می‌توانید از صفر شروع کنید یا فایل را بارگذاری کنید.', true); });
+  }
+
+  function status(msg, isWarn){
+    const el = document.getElementById('saveStatus');
+    el.style.color = isWarn ? '#fca5a5' : '';
+    el.textContent = msg;
+    setTimeout(() => { if (el.textContent === msg) el.textContent=''; }, 4000);
+  }
+
+  function loadFile(ev){
+    const file = ev.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try{
+        DATA = JSON.parse(reader.result);
+        buildTabs();
+        status('فایل با موفقیت بارگذاری شد.');
+      }catch(e){ alert('فایل JSON معتبر نیست.'); }
+    };
+    reader.readAsText(file);
+  }
+
+  function downloadJSON(){
+    const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'data.json';
+    a.click();
+    status('data.json دانلود شد — آن را جایگزین فایل قبلی روی هاست کنید.');
+  }
+
+  function copyJSON(){
+    navigator.clipboard.writeText(JSON.stringify(DATA, null, 2))
+      .then(() => status('JSON در کلیپ‌بورد کپی شد.'));
+  }
+
+  /* ================= TABS ================= */
+  function buildTabs(){
+    const tabsEl = document.getElementById('tabs');
+    const panelsEl = document.getElementById('panels');
+    tabsEl.innerHTML = '';
+    panelsEl.innerHTML = '';
+
+    const tabDefs = [{ key: 'leaderboard', label: 'رتبه‌بندی کلی' }]
+      .concat(DATA.sports.map(s => ({ key: s.key, label: s.label })));
+
+    tabDefs.forEach((t, i) => {
+      const tab = document.createElement('button');
+      tab.className = 'tab' + (i===0 ? ' active' : '');
+      tab.textContent = t.label;
+      tab.onclick = () => {
+        document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-'+t.key).classList.add('active');
+      };
+      tabsEl.appendChild(tab);
+
+      const panel = document.createElement('div');
+      panel.className = 'panel' + (i===0 ? ' active' : '');
+      panel.id = 'panel-'+t.key;
+      panelsEl.appendChild(panel);
+    });
+
+    renderLeaderboardPanel();
+    DATA.sports.forEach(sport => renderSportPanel(sport));
+  }
+
+  /* ================= LEADERBOARD PANEL ================= */
+  function renderLeaderboardPanel(){
+    const panel = document.getElementById('panel-leaderboard');
+    panel.innerHTML = `
+      <div class="card">
+        <h3>تیم‌ها و مدال‌ها</h3>
+        <div class="col-head"><span>نام دانشگاه</span><span>منطقه</span><span>طلا</span><span>نقره</span><span>برنز</span><span>امتیاز</span><span></span></div>
+        <div id="teamRows"></div>
+        <button class="btn-sm add-row-btn" onclick="addTeam()">+ افزودن تیم</button>
+      </div>
+    `;
+    renderTeamRows();
+  }
+
+  function renderTeamRows(){
+    const box = document.getElementById('teamRows');
+    box.innerHTML = '';
+    DATA.teams.forEach((t, idx) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = `
+        <input type="text" value="${esc(t.name)}" oninput="DATA.teams[${idx}].name=this.value">
+        <input type="text" value="${esc(t.sub)}" oninput="DATA.teams[${idx}].sub=this.value">
+        <input type="number" value="${t.gold}" oninput="DATA.teams[${idx}].gold=Number(this.value)">
+        <input type="number" value="${t.silver}" oninput="DATA.teams[${idx}].silver=Number(this.value)">
+        <input type="number" value="${t.bronze}" oninput="DATA.teams[${idx}].bronze=Number(this.value)">
+        <input type="number" value="${t.points}" oninput="DATA.teams[${idx}].points=Number(this.value)">
+        <button class="del-btn" onclick="removeTeam(${idx})">حذف</button>
+      `;
+      box.appendChild(row);
+    });
+  }
+  function addTeam(){
+    DATA.teams.push({ name:'دانشگاه جدید', sub:'', gold:0, silver:0, bronze:0, points:0 });
+    renderTeamRows();
+  }
+  function removeTeam(idx){
+    DATA.teams.splice(idx,1);
+    renderTeamRows();
+  }
+
+  /* ================= SPORT PANEL (groups + bracket) ================= */
+  function renderSportPanel(sport){
+    const panel = document.getElementById('panel-'+sport.key);
+    const groupNames = Object.keys(sport.groups);
+
+    let groupsHTML = groupNames.map(gName => {
+      const rows = sport.groups[gName];
+      let rowsHTML = rows.map((r, ri) => `
+        <div class="g-row">
+          <input type="text" value="${esc(r.name)}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'name',this.value)">
+          <input type="number" value="${r.p}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'p',Number(this.value))">
+          <input type="number" value="${r.w}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'w',Number(this.value))">
+          <input type="number" value="${r.d}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'d',Number(this.value))">
+          <input type="number" value="${r.l}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'l',Number(this.value))">
+          <input type="text" value="${esc(r.diff)}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'diff',this.value)">
+          <input type="number" value="${r.pts}" oninput="setGroupField('${sport.key}','${esc(gName)}',${ri},'pts',Number(this.value))">
+          <label class="q-lbl"><input type="checkbox" ${r.q?'checked':''} onchange="setGroupField('${sport.key}','${esc(gName)}',${ri},'q',this.checked)"> صعود</label>
+          <button class="del-btn" onclick="removeGroupRow('${sport.key}','${esc(gName)}',${ri})">حذف</button>
+        </div>
+      `).join('');
+      return `
+        <div class="group-card">
+          <h4>${esc(gName)}</h4>
+          <div class="g-head"><span>تیم</span><span>ب</span><span>برد</span><span>تساوی</span><span>باخت</span><span>تفاضل</span><span>امتیاز</span><span>صعود</span><span></span></div>
+          ${rowsHTML}
+          <button class="btn-sm" onclick="addGroupRow('${sport.key}','${esc(gName)}')">+ افزودن تیم به ${esc(gName)}</button>
+        </div>
+      `;
+    }).join('');
+
+    function matchRowsHTML(arr, stage){
+      return arr.map((m, mi) => `
+        <div class="match-row">
+          <input type="text" value="${esc(m[0])}" placeholder="تیم ۱" oninput="setMatchField('${sport.key}','${stage}',${mi},0,this.value)">
+          <input type="number" value="${m[2]}" placeholder="امتیاز" oninput="setMatchField('${sport.key}','${stage}',${mi},2,Number(this.value))">
+          <span class="vs">در برابر</span>
+          <input type="text" value="${esc(m[1])}" placeholder="تیم ۲" oninput="setMatchField('${sport.key}','${stage}',${mi},1,this.value)">
+          <input type="number" value="${m[3]}" placeholder="امتیاز" oninput="setMatchField('${sport.key}','${stage}',${mi},3,Number(this.value))">
+          <div class="match-extra"><input type="text" value="${esc(m[4]||'')}" placeholder="توضیح تکمیلی (مثل نتیجه پنالتی)" oninput="setMatchField('${sport.key}','${stage}',${mi},4,this.value)"></div>
+        </div>
+      `).join('');
+    }
+
+    panel.innerHTML = `
+      <div class="card">
+        <h3>${esc(sport.label)} — مرحله گروهی</h3>
+        ${groupsHTML}
+      </div>
+      <div class="card">
+        <h3>${esc(sport.label)} — مرحله حذفی</h3>
+        <div class="subhead">یک‌چهارم نهایی</div>
+        ${matchRowsHTML(sport.qf, 'qf')}
+        <div class="subhead">نیمه‌نهایی</div>
+        ${matchRowsHTML(sport.sf, 'sf')}
+        <div class="subhead">فینال</div>
+        ${matchRowsHTML([sport.final], 'final')}
+      </div>
+    `;
+  }
+
+  function findSport(key){ return DATA.sports.find(s => s.key === key); }
+
+  function setGroupField(sportKey, groupName, idx, field, value){
+    const sport = findSport(sportKey);
+    sport.groups[groupName][idx][field] = value;
+  }
+  function addGroupRow(sportKey, groupName){
+    const sport = findSport(sportKey);
+    sport.groups[groupName].push({ name:'تیم جدید', p:0, w:0, d:0, l:0, diff:'0', pts:0 });
+    renderSportPanel(sport);
+    reactivateTab(sportKey);
+  }
+  function removeGroupRow(sportKey, groupName, idx){
+    const sport = findSport(sportKey);
+    sport.groups[groupName].splice(idx,1);
+    renderSportPanel(sport);
+    reactivateTab(sportKey);
+  }
+  function setMatchField(sportKey, stage, idx, pos, value){
+    const sport = findSport(sportKey);
+    if (stage === 'final'){ sport.final[pos] = value; }
+    else { sport[stage][idx][pos] = value; }
+  }
+  function reactivateTab(sportKey){
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    document.getElementById('panel-'+sportKey).classList.add('active');
+  }
+
+  function esc(str){
+    return String(str ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+</script>
+</body>
+</html>
