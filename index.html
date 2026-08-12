@@ -222,6 +222,19 @@
   }
 
   .loading-msg{ text-align:center; color:var(--text-dim); padding:60px 0; font-size:13px; }
+
+  /* ---------- Sport sub-tabs (group stage / bracket) ---------- */
+  .subtabs{ display:flex; gap:8px; margin-bottom:18px; }
+  .subtab{
+    flex:1; text-align:center; padding:12px 10px; border-radius:12px; border:1px solid var(--lane-line);
+    background: var(--panel-2); color: var(--text-dim); cursor:pointer; font-weight:700; font-size:13.5px;
+    transition: all .2s ease; -webkit-tap-highlight-color: transparent;
+  }
+  .subtab .st-sub{ display:block; font-weight:400; font-size:10.5px; margin-top:3px; color: var(--text-dim); }
+  .subtab.active{ background: var(--gold); border-color: var(--gold); color:#1a1305; }
+  .subtab.active .st-sub{ color:#1a1305; opacity:.75; }
+  .sub-view{ display:none; }
+  .sub-view.active{ display:block; }
 </style>
 </head>
 <body>
@@ -268,6 +281,16 @@
           <div class="head-titles">
             <span class="eyebrow">مرحله گروهی و مرحله حذفی</span>
             <span class="title" id="sportTitle"></span>
+          </div>
+        </div>
+        <div class="subtabs" id="sportSubtabs">
+          <div class="subtab" id="subtab-groups" onclick="showSportSub('groups')">
+            جدول گروهی
+            <span class="st-sub">نتایج مرحله مقدماتی</span>
+          </div>
+          <div class="subtab" id="subtab-bracket" onclick="showSportSub('bracket')">
+            نمودار حذفی
+            <span class="st-sub">یک‌چهارم تا فینال</span>
           </div>
         </div>
         <div id="sportPanelContent"></div>
@@ -368,32 +391,44 @@
       .map(([name, rows]) => groupTableHTML(name, rows)).join('');
 
     document.getElementById('sportPanelContent').innerHTML = `
-      <div class="groups-title">مرحله گروهی</div>
-      <div class="groups-grid">${groupsHTML}</div>
-      <div class="groups-legend"><span class="dot-sm"></span> صعود به مرحله حذفی</div>
+      <div class="sub-view active" id="sub-groups">
+        <div class="groups-grid">${groupsHTML}</div>
+        <div class="groups-legend"><span class="dot-sm"></span> صعود به مرحله حذفی</div>
+      </div>
 
-      <div class="groups-title">مرحله حذفی</div>
-      <div class="bracket-wrap">
-        <div class="bracket-labels">
-          <span>یک‌چهارم نهایی</span><span>نیمه‌نهایی</span><span>فینال</span><span>قهرمان</span>
-        </div>
-        <div class="bracket">
-          <div class="round" style="margin-top:8px; gap:16px;">${qfHTML}</div>
-          <div class="round" style="margin-top:48px; gap:96px;">${sfHTML}</div>
-          <div class="round" style="margin-top:128px;">${finalHTML}</div>
-          <div class="round" style="margin-top:128px;">
-            <div class="champion-card">
-              <span class="cup">🏆</span>
-              <div>
-                <div class="c-name">${championName}</div>
-                <div class="c-sub">قهرمان ${sport.label}</div>
+      <div class="sub-view" id="sub-bracket">
+        <div class="bracket-wrap">
+          <div class="bracket-labels">
+            <span>یک‌چهارم نهایی</span><span>نیمه‌نهایی</span><span>فینال</span><span>قهرمان</span>
+          </div>
+          <div class="bracket">
+            <div class="round" style="margin-top:8px; gap:16px;">${qfHTML}</div>
+            <div class="round" style="margin-top:48px; gap:96px;">${sfHTML}</div>
+            <div class="round" style="margin-top:128px;">${finalHTML}</div>
+            <div class="round" style="margin-top:128px;">
+              <div class="champion-card">
+                <span class="cup">🏆</span>
+                <div>
+                  <div class="c-name">${championName}</div>
+                  <div class="c-sub">قهرمان ${sport.label}</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="foot-note">داده‌های این رشته از فایل data.json خوانده می‌شود.</div>
     `;
+
+    // reset sub-tab selection to group stage whenever a sport is opened
+    document.getElementById('subtab-groups').classList.add('active');
+    document.getElementById('subtab-bracket').classList.remove('active');
+  }
+
+  function showSportSub(which){
+    document.querySelectorAll('.sub-view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.subtab').forEach(v => v.classList.remove('active'));
+    document.getElementById('sub-' + which).classList.add('active');
+    document.getElementById('subtab-' + which).classList.add('active');
   }
 
   /* ---------------- Home menu build ---------------- */
