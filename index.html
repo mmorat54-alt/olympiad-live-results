@@ -172,46 +172,40 @@
     .menu-grid{ grid-template-columns: 1fr; }
   }
 
-  /* ---------- Bracket ---------- */
+  /* ---------- Bracket (vertical, no horizontal scroll) ---------- */
   .bracket-wrap{
     background: var(--panel); border: 1px solid var(--lane-line); border-radius: 16px;
-    overflow-x: auto; padding: 26px 30px; direction: ltr;
+    padding: 20px 16px;
   }
-  .bracket-labels{ display:flex; gap:40px; margin-bottom:16px; min-width: 660px; }
-  .bracket-labels span{
-    direction:rtl; width:186px; text-align:center; font-family:'Oswald', sans-serif; font-size:11px;
-    letter-spacing:.08em; color: var(--text-dim); text-transform:uppercase;
+  .bracket-stage{ margin-bottom: 22px; }
+  .bracket-stage:last-of-type{ margin-bottom: 0; }
+  .stage-title{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Oswald', sans-serif; font-size:11px; letter-spacing:.08em;
+    color: var(--text-dim); text-transform:uppercase; margin-bottom:10px;
   }
-  .bracket{ display:flex; align-items:flex-start; gap:40px; min-width: 660px; }
-  .round{ display:flex; flex-direction:column; position:relative; }
+  .stage-title::after{ content:''; flex:1; height:1px; background: var(--lane-line); }
+  .stage-matches{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap:10px;
+  }
+  .bracket-stage[data-stage="final"] .stage-matches{ grid-template-columns: minmax(0,320px); }
   .match{
-    direction: rtl; width:186px; height:58px; background: var(--panel-2);
-    border:1px solid var(--lane-line); border-radius:10px; padding:6px 10px;
-    display:flex; flex-direction:column; justify-content:center; gap:5px;
-    font-size:12.5px; position:relative;
+    background: var(--panel-2); border:1px solid var(--lane-line); border-radius:10px;
+    padding:8px 12px; display:flex; flex-direction:column; justify-content:center; gap:5px;
+    font-size:12.5px;
   }
   .match .t-row{ display:flex; justify-content:space-between; align-items:center; }
   .match .t-row .t-name{ color: var(--text-dim); }
   .match .t-row .t-score{ color: var(--text-dim); font-family:'Oswald',sans-serif; font-weight:600; }
   .match .t-row.win .t-name{ color: var(--text); font-weight:700; }
   .match .t-row.win .t-score{ color: var(--gold); font-weight:700; }
-  .match.has-next.top::after, .match.has-next.bottom::after{
-    content:''; position:absolute; left:100%; width: var(--gap, 40px);
-    height: calc(var(--half, 40px) + 1px); border-right:2px solid var(--lane-line);
-  }
-  .match.has-next.top::after{ top:50%; border-top:2px solid var(--lane-line); border-top-right-radius:8px; }
-  .match.has-next.bottom::after{ bottom:50%; border-bottom:2px solid var(--lane-line); border-bottom-right-radius:8px; }
-  .match.has-next.straight::after{
-    content:''; position:absolute; top:50%; left:100%; width: var(--gap, 40px);
-    height:2px; background: var(--lane-line); transform:translateY(-1px);
-  }
   .champion-card{
-    direction:rtl; display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:12px; justify-content:center;
     background: linear-gradient(135deg, rgba(232,184,75,.16), rgba(232,184,75,.03));
-    border:1px solid var(--gold); border-radius:12px; padding:10px 16px; white-space:nowrap;
+    border:1px solid var(--gold); border-radius:12px; padding:14px 16px; text-align:center;
   }
-  .champion-card .cup{ font-size:18px; }
-  .champion-card .c-name{ font-weight:800; font-size:14px; }
+  .champion-card .cup{ font-size:22px; }
+  .champion-card .c-name{ font-weight:800; font-size:15px; }
   .champion-card .c-sub{ font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:.08em; color: var(--gold); text-transform:uppercase; }
 
   @media (max-width: 520px){
@@ -219,6 +213,7 @@
     .team-sub{ display:none; }
     .medals{ gap:6px; font-size: 11px; }
     .title{ font-size: 18px; }
+    .stage-matches{ grid-template-columns: 1fr; }
   }
 
   .loading-msg{ text-align:center; color:var(--text-dim); padding:60px 0; font-size:13px; }
@@ -269,7 +264,6 @@
           <div class="col-labels"><span>رتبه</span><span>دانشگاه</span><span>مدال‌ها</span><span>امتیاز</span></div>
           <div id="laneContainer"></div>
         </div>
-        <div class="foot-note">داده‌های این جدول از فایل data.json خوانده می‌شود.</div>
       </div>
     </div>
 
@@ -369,22 +363,10 @@
   function renderSport(sport){
     document.getElementById('sportTitle').textContent = sport.label;
 
-    const qfHTML = sport.qf.map((m,i) => {
-      const posClass = (i % 2 === 0) ? 'top' : 'bottom';
-      return matchHTML(m[0], m[2], m[1], m[3], m[4], `has-next ${posClass}`)
-        .replace('class="match', `style="--half:40px;--gap:40px" class="match`);
-    }).join('');
-
-    const sfHTML = sport.sf.map((m,i) => {
-      const posClass = (i % 2 === 0) ? 'top' : 'bottom';
-      return matchHTML(m[0], m[2], m[1], m[3], m[4], `has-next ${posClass}`)
-        .replace('class="match', `style="--half:80px;--gap:40px" class="match`);
-    }).join('');
-
+    const qfHTML = sport.qf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
+    const sfHTML = sport.sf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
     const f = sport.final;
-    const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], 'has-next straight')
-      .replace('class="match', `style="--gap:40px" class="match`);
-
+    const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '');
     const championName = (f[2] >= f[3]) ? f[0] : f[1];
 
     const groupsHTML = Object.entries(sport.groups)
@@ -398,20 +380,24 @@
 
       <div class="sub-view" id="sub-bracket">
         <div class="bracket-wrap">
-          <div class="bracket-labels">
-            <span>یک‌چهارم نهایی</span><span>نیمه‌نهایی</span><span>فینال</span><span>قهرمان</span>
+          <div class="bracket-stage" data-stage="qf">
+            <div class="stage-title">یک‌چهارم نهایی</div>
+            <div class="stage-matches">${qfHTML}</div>
           </div>
-          <div class="bracket">
-            <div class="round" style="margin-top:8px; gap:16px;">${qfHTML}</div>
-            <div class="round" style="margin-top:48px; gap:96px;">${sfHTML}</div>
-            <div class="round" style="margin-top:128px;">${finalHTML}</div>
-            <div class="round" style="margin-top:128px;">
-              <div class="champion-card">
-                <span class="cup">🏆</span>
-                <div>
-                  <div class="c-name">${championName}</div>
-                  <div class="c-sub">قهرمان ${sport.label}</div>
-                </div>
+          <div class="bracket-stage" data-stage="sf">
+            <div class="stage-title">نیمه‌نهایی</div>
+            <div class="stage-matches">${sfHTML}</div>
+          </div>
+          <div class="bracket-stage" data-stage="final">
+            <div class="stage-title">فینال</div>
+            <div class="stage-matches">${finalHTML}</div>
+          </div>
+          <div class="bracket-stage" data-stage="champion">
+            <div class="champion-card">
+              <span class="cup">🏆</span>
+              <div>
+                <div class="c-name">${championName}</div>
+                <div class="c-sub">قهرمان ${sport.label}</div>
               </div>
             </div>
           </div>
