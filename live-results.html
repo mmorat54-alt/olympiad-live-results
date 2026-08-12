@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نتایج زنده | هفدهمین المپیاد فرهنگی ورزشی دانشجویان پسر کشور</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b1220;
+    --panel: #121c30;
+    --panel-2: #16223a;
+    --lane-line: #223154;
+    --text: #eef1f7;
+    --text-dim: #8d99b4;
+    --gold: #e8b84b;
+    --silver: #cdd3e0;
+    --bronze: #cf8752;
+    --live-red: #ef4444;
+    --track-1: #182541;
+    --track-2: #0f1a2e;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Vazirmatn', sans-serif;
+    padding: 28px 16px 60px;
+    min-height: 100vh;
+  }
+
+  .wrap{ max-width: 920px; margin: 0 auto; }
+
+  /* ---------- Shared section header ---------- */
+  .section{ margin-bottom: 40px; }
+  .head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--lane-line);
+  }
+  .head-titles{ display:flex; flex-direction:column; gap:4px; }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    letter-spacing: .14em;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .title{ font-size: 22px; font-weight: 800; line-height: 1.4; }
+  .live-badge{
+    display:flex; align-items:center; gap:8px;
+    background: rgba(239,68,68,.1);
+    border: 1px solid rgba(239,68,68,.35);
+    padding: 6px 12px; border-radius: 999px;
+    font-family:'Oswald', sans-serif; font-size: 12px; letter-spacing: .08em;
+    color: #fca5a5; white-space: nowrap;
+  }
+  .dot{
+    width: 8px; height:8px; border-radius:50%; background: var(--live-red);
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(239,68,68,.55); }
+    70%{ box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+  }
+
+  .updated-row{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom: 14px; font-size: 12px; color: var(--text-dim);
+  }
+  .updated-row b{ color: var(--text); font-weight:600; }
+
+  /* ---------- Leaderboard ---------- */
+  .board{
+    background: var(--panel); border: 1px solid var(--lane-line);
+    border-radius: 16px; overflow: hidden;
+  }
+  .col-labels{
+    display:grid; grid-template-columns: 56px 1fr 130px 90px;
+    padding: 12px 18px; font-family:'Oswald', sans-serif; font-size: 11px;
+    letter-spacing: .1em; color: var(--text-dim); text-transform: uppercase;
+    border-bottom: 1px solid var(--lane-line);
+  }
+  .col-labels span:nth-child(3){ text-align:center; }
+  .col-labels span:nth-child(4){ text-align:left; }
+  .lane{
+    display:grid; grid-template-columns: 56px 1fr 130px 90px; align-items:center;
+    padding: 12px 18px; background: var(--track-2); border-bottom: 1px solid var(--lane-line);
+    transition: background .5s ease; position: relative;
+  }
+  .lane:nth-child(even){ background: var(--track-1); }
+  .lane:last-child{ border-bottom:none; }
+  .lane.flash{ background: rgba(232,184,75,.12); }
+  .rank{
+    font-family:'Oswald', sans-serif; font-weight: 700; font-size: 20px;
+    width: 34px; height: 34px; display:flex; align-items:center; justify-content:center;
+    border-radius: 8px; color: var(--text-dim); background: var(--panel-2);
+  }
+  .lane[data-tier="1"] .rank{ color:#1a1305; background: var(--gold); }
+  .lane[data-tier="2"] .rank{ color:#14161c; background: var(--silver); }
+  .lane[data-tier="3"] .rank{ color:#1b120a; background: var(--bronze); }
+  .team{ display:flex; flex-direction:column; gap:2px; padding-inline-start: 14px; }
+  .team-name{ font-weight:600; font-size:14.5px; }
+  .team-sub{ font-size:11.5px; color: var(--text-dim); }
+  .medals{ display:flex; gap: 10px; justify-content:center; font-family:'Oswald', sans-serif; font-size: 13px; }
+  .medal{ display:flex; align-items:center; gap:4px; }
+  .medal-dot{ width:9px; height:9px; border-radius:50%; }
+  .medal-dot.g{ background: var(--gold); }
+  .medal-dot.s{ background: var(--silver); }
+  .medal-dot.b{ background: var(--bronze); }
+  .points{ font-family:'Oswald', sans-serif; font-weight:700; font-size: 19px; text-align:left; font-variant-numeric: tabular-nums; }
+  .points small{ display:block; font-family:'Vazirmatn', sans-serif; font-weight:400; font-size: 10.5px; color: var(--text-dim); }
+
+  .foot-note{ margin-top: 14px; font-size: 11.5px; color: var(--text-dim); text-align:center; }
+
+  /* ---------- Sport tabs ---------- */
+  .tabs{
+    display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; margin-bottom:18px;
+    scrollbar-width: thin;
+  }
+  .tab{
+    flex: 0 0 auto; font-family:'Vazirmatn',sans-serif; font-weight:600; font-size:13px;
+    padding:8px 16px; border-radius:999px; border:1px solid var(--lane-line);
+    background: var(--panel-2); color: var(--text-dim); cursor:pointer;
+    transition: all .2s ease; white-space:nowrap;
+  }
+  .tab:hover{ color: var(--text); }
+  .tab.active{ background: var(--gold); border-color: var(--gold); color:#1a1305; }
+
+  /* ---------- Bracket ---------- */
+  .bracket-panel{ display:none; }
+  .bracket-panel.active{ display:block; }
+  .bracket-wrap{
+    background: var(--panel); border: 1px solid var(--lane-line); border-radius: 16px;
+    overflow-x: auto; padding: 26px 30px;
+    direction: ltr; /* keep round order left-to-right regardless of page direction */
+  }
+  .bracket-labels{
+    display:flex; gap:40px; margin-bottom:16px; min-width: 660px;
+  }
+  .bracket-labels span{
+    direction:rtl; width:186px; text-align:center; font-family:'Oswald', sans-serif; font-size:11px;
+    letter-spacing:.08em; color: var(--text-dim); text-transform:uppercase;
+  }
+  .bracket{ display:flex; align-items:flex-start; gap:40px; min-width: 660px; }
+  .round{ display:flex; flex-direction:column; position:relative; }
+  .match{
+    direction: rtl; width:186px; height:58px; background: var(--panel-2);
+    border:1px solid var(--lane-line); border-radius:10px; padding:6px 10px;
+    display:flex; flex-direction:column; justify-content:center; gap:5px;
+    font-size:12.5px; position:relative;
+  }
+  .match .t-row{ display:flex; justify-content:space-between; align-items:center; }
+  .match .t-row .t-name{ color: var(--text-dim); }
+  .match .t-row .t-score{ color: var(--text-dim); font-family:'Oswald',sans-serif; font-weight:600; }
+  .match .t-row.win .t-name{ color: var(--text); font-weight:700; }
+  .match .t-row.win .t-score{ color: var(--gold); font-weight:700; }
+
+  .match.has-next.top::after,
+  .match.has-next.bottom::after{
+    content:''; position:absolute; left:100%; width: var(--gap, 40px);
+    height: calc(var(--half, 40px) + 1px); border-right:2px solid var(--lane-line);
+  }
+  .match.has-next.top::after{ top:50%; border-top:2px solid var(--lane-line); border-top-right-radius:8px; }
+  .match.has-next.bottom::after{ bottom:50%; border-bottom:2px solid var(--lane-line); border-bottom-right-radius:8px; }
+  .match.has-next.straight::after{
+    content:''; position:absolute; top:50%; left:100%; width: var(--gap, 40px);
+    height:2px; background: var(--lane-line); transform:translateY(-1px);
+  }
+
+  .champion-card{
+    direction:rtl; display:flex; align-items:center; gap:10px; background: linear-gradient(135deg, rgba(232,184,75,.16), rgba(232,184,75,.03));
+    border:1px solid var(--gold); border-radius:12px; padding:10px 16px; white-space:nowrap;
+  }
+  .champion-card .cup{ font-size:18px; }
+  .champion-card .c-name{ font-weight:800; font-size:14px; }
+  .champion-card .c-sub{ font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:.08em; color: var(--gold); text-transform:uppercase; }
+
+  @media (max-width: 520px){
+    .col-labels, .lane{ grid-template-columns: 44px 1fr 96px 66px; padding: 10px 12px; }
+    .team-sub{ display:none; }
+    .medals{ gap:6px; font-size: 11px; }
+    .title{ font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===================== Leaderboard section ===================== -->
+    <div class="section">
+      <div class="head">
+        <div class="head-titles">
+          <span class="eyebrow">هفدهمین المپیاد فرهنگی ورزشی دانشجویان پسر کشور</span>
+          <span class="title">نتایج زنده</span>
+        </div>
+        <div class="live-badge"><span class="dot"></span> زنده</div>
+      </div>
+
+      <div class="updated-row">
+        <span>رتبه‌بندی کلی تیم‌ها بر اساس مجموع مدال‌ها و امتیاز</span>
+        <span>آخرین به‌روزرسانی: <b id="updatedAt">همین الان</b></span>
+      </div>
+
+      <div class="board">
+        <div class="col-labels">
+          <span>رتبه</span><span>دانشگاه</span><span>مدال‌ها</span><span>امتیاز</span>
+        </div>
+        <div id="laneContainer"></div>
+      </div>
+      <div class="foot-note">داده‌های نمایشی — برای اتصال به نتایج واقعی، آرایه teams را با API مسابقات جایگزین کنید.</div>
+    </div>
+
+    <!-- ===================== Bracket section ===================== -->
+    <div class="section">
+      <div class="head">
+        <div class="head-titles">
+          <span class="eyebrow">مرحله حذفی</span>
+          <span class="title">نمودار درختی رشته‌ها</span>
+        </div>
+      </div>
+
+      <div class="tabs" id="sportTabs"></div>
+      <div id="bracketPanels"></div>
+      <div class="foot-note">با تعویض تب، نمودار حذفی هر رشته نمایش داده می‌شود. برای داده واقعی، آرایه sports را جایگزین کنید.</div>
+    </div>
+
+  </div>
+
+<script>
+  /* ---------------- Leaderboard ---------------- */
+  let teams = [
+    { name: "دانشگاه صنعتی شریف",      sub: "منطقه ۱", gold: 7, silver: 4, bronze: 3, points: 148 },
+    { name: "دانشگاه تهران",           sub: "منطقه ۱", gold: 6, silver: 5, bronze: 2, points: 139 },
+    { name: "دانشگاه فردوسی مشهد",     sub: "منطقه ۲", gold: 4, silver: 3, bronze: 5, points: 101 },
+    { name: "دانشگاه اصفهان",          sub: "منطقه ۲", gold: 3, silver: 4, bronze: 2, points: 84  },
+    { name: "دانشگاه شیراز",           sub: "منطقه ۳", gold: 2, silver: 3, bronze: 4, points: 71  },
+    { name: "دانشگاه تبریز",           sub: "منطقه ۴", gold: 2, silver: 2, bronze: 3, points: 63  },
+    { name: "دانشگاه علم و صنعت ایران", sub: "منطقه ۱", gold: 1, silver: 2, bronze: 2, points: 48  },
+    { name: "دانشگاه یزد",             sub: "منطقه ۲", gold: 1, silver: 1, bronze: 2, points: 39  },
+  ];
+
+  const laneContainer = document.getElementById('laneContainer');
+  const updatedAt = document.getElementById('updatedAt');
+
+  function renderLeaderboard(highlightNames = []){
+    const sorted = [...teams].sort((a,b) => b.points - a.points);
+    laneContainer.innerHTML = '';
+    sorted.forEach((t, i) => {
+      const tier = i < 3 ? String(i+1) : '';
+      const lane = document.createElement('div');
+      lane.className = 'lane' + (highlightNames.includes(t.name) ? ' flash' : '');
+      if (tier) lane.setAttribute('data-tier', tier);
+      lane.innerHTML = `
+        <div class="rank">${i+1}</div>
+        <div class="team">
+          <span class="team-name">${t.name}</span>
+          <span class="team-sub">${t.sub}</span>
+        </div>
+        <div class="medals">
+          <span class="medal"><span class="medal-dot g"></span>${t.gold}</span>
+          <span class="medal"><span class="medal-dot s"></span>${t.silver}</span>
+          <span class="medal"><span class="medal-dot b"></span>${t.bronze}</span>
+        </div>
+        <div class="points">${t.points}<small>امتیاز</small></div>
+      `;
+      laneContainer.appendChild(lane);
+    });
+  }
+  renderLeaderboard();
+
+  function simulateLiveUpdate(){
+    const idx = Math.floor(Math.random() * teams.length);
+    teams[idx].points += Math.floor(Math.random() * 3) + 1;
+    updatedAt.textContent = 'همین الان';
+    renderLeaderboard([teams[idx].name]);
+  }
+  setInterval(simulateLiveUpdate, 4000);
+
+  /* ---------------- Bracket ---------------- */
+  // Each sport: 8 teams, single elimination -> quarterfinal, semifinal, final, champion.
+  // scoreLabel is just a display label per sport (goals / sets / points / games).
+  const sports = [
+    {
+      key: 'freestyle-wrestling', label: 'کشتی',
+      scoreLabel: 'امتیاز',
+      qf: [
+        ['دانشگاه صنعتی شریف','دانشگاه یزد', 6,2],
+        ['دانشگاه تهران','دانشگاه اهواز', 4,3],
+        ['دانشگاه فردوسی مشهد','دانشگاه کاشان', 5,1],
+        ['دانشگاه اصفهان','دانشگاه بوعلی همدان', 3,2],
+      ],
+      sf: [
+        ['دانشگاه صنعتی شریف','دانشگاه تهران', 5,4],
+        ['دانشگاه فردوسی مشهد','دانشگاه اصفهان', 6,3],
+      ],
+      final: ['دانشگاه صنعتی شریف','دانشگاه فردوسی مشهد', 4,2],
+    },
+    {
+      key: 'futsal', label: 'فوتسال',
+      scoreLabel: 'گل',
+      qf: [
+        ['دانشگاه تهران','دانشگاه تبریز', 3,1],
+        ['دانشگاه شیراز','دانشگاه یزد', 2,2,'(۴-۳ پن)'],
+        ['دانشگاه صنعتی شریف','دانشگاه اهواز', 4,0],
+        ['دانشگاه علم و صنعت ایران','دانشگاه اصفهان', 1,0],
+      ],
+      sf: [
+        ['دانشگاه تهران','دانشگاه شیراز', 2,1],
+        ['دانشگاه صنعتی شریف','دانشگاه علم و صنعت ایران', 3,2],
+      ],
+      final: ['دانشگاه تهران','دانشگاه صنعتی شریف', 2,2,'(۵-۴ پن)'],
+    },
+    {
+      key: 'volleyball', label: 'والیبال',
+      scoreLabel: 'ست',
+      qf: [
+        ['دانشگاه اصفهان','دانشگاه یزد', 3,0],
+        ['دانشگاه تهران','دانشگاه شیراز', 3,1],
+        ['دانشگاه صنعتی شریف','دانشگاه تبریز', 3,2],
+        ['دانشگاه فردوسی مشهد','دانشگاه اهواز', 3,0],
+      ],
+      sf: [
+        ['دانشگاه اصفهان','دانشگاه تهران', 3,2],
+        ['دانشگاه صنعتی شریف','دانشگاه فردوسی مشهد', 3,1],
+      ],
+      final: ['دانشگاه اصفهان','دانشگاه صنعتی شریف', 3,1],
+    },
+    {
+      key: 'table-tennis', label: 'تنیس روی میز',
+      scoreLabel: 'گیم',
+      qf: [
+        ['دانشگاه تهران','دانشگاه اصفهان', 3,2],
+        ['دانشگاه صنعتی شریف','دانشگاه یزد', 3,0],
+        ['دانشگاه فردوسی مشهد','دانشگاه تبریز', 3,1],
+        ['دانشگاه شیراز','دانشگاه اهواز', 3,2],
+      ],
+      sf: [
+        ['دانشگاه تهران','دانشگاه صنعتی شریف', 3,1],
+        ['دانشگاه فردوسی مشهد','دانشگاه شیراز', 3,0],
+      ],
+      final: ['دانشگاه تهران','دانشگاه فردوسی مشهد', 3,2],
+    },
+  ];
+
+  function matchHTML(t1,s1,t2,s2, extra, cls){
+    // On a tie, the sample data lists the shoot-out winner first (team 1).
+    const t1win = s1 > s2 || (s1 === s2 && !!extra);
+    const t2win = s2 > s1;
+    const titleAttr = extra ? ` title="${extra}"` : '';
+    return `<div class="match ${cls}"${titleAttr}>
+      <div class="t-row ${t1win?'win':''}"><span class="t-name">${t1}</span><span class="t-score">${s1}</span></div>
+      <div class="t-row ${t2win?'win':''}"><span class="t-name">${t2}</span><span class="t-score">${s2}</span></div>
+    </div>`;
+  }
+
+  const tabsEl = document.getElementById('sportTabs');
+  const panelsEl = document.getElementById('bracketPanels');
+
+  sports.forEach((sport, si) => {
+    // tab
+    const tab = document.createElement('button');
+    tab.className = 'tab' + (si === 0 ? ' active' : '');
+    tab.textContent = sport.label;
+    tab.dataset.target = sport.key;
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.bracket-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + sport.key).classList.add('active');
+    });
+    tabsEl.appendChild(tab);
+
+    // panel
+    const panel = document.createElement('div');
+    panel.className = 'bracket-panel' + (si === 0 ? ' active' : '');
+    panel.id = 'panel-' + sport.key;
+
+    const qfHTML = sport.qf.map((m,i) => {
+      const posClass = (i % 2 === 0) ? 'top' : 'bottom';
+      return matchHTML(m[0], m[2], m[1], m[3], m[4], `has-next ${posClass}`)
+        .replace('class="match', `style="--half:40px;--gap:40px" class="match`);
+    }).join('');
+
+    const sfHTML = sport.sf.map((m,i) => {
+      const posClass = (i % 2 === 0) ? 'top' : 'bottom';
+      return matchHTML(m[0], m[2], m[1], m[3], m[4], `has-next ${posClass}`)
+        .replace('class="match', `style="--half:80px;--gap:40px" class="match`);
+    }).join('');
+
+    const f = sport.final;
+    const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], 'has-next straight')
+      .replace('class="match', `style="--gap:40px" class="match`);
+
+    const championName = (f[2] >= f[3]) ? f[0] : f[1];
+
+    panel.innerHTML = `
+      <div class="bracket-wrap">
+        <div class="bracket-labels">
+          <span>یک‌چهارم نهایی</span>
+          <span>نیمه‌نهایی</span>
+          <span>فینال</span>
+          <span>قهرمان</span>
+        </div>
+        <div class="bracket">
+          <div class="round" style="margin-top:8px; gap:16px;">
+            ${qfHTML}
+          </div>
+          <div class="round" style="margin-top:48px; gap:96px;">
+            ${sfHTML}
+          </div>
+          <div class="round" style="margin-top:128px;">
+            ${finalHTML}
+          </div>
+          <div class="round" style="margin-top:128px;">
+            <div class="champion-card">
+              <span class="cup">🏆</span>
+              <div>
+                <div class="c-name">${championName}</div>
+                <div class="c-sub">قهرمان ${sport.label}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    panelsEl.appendChild(panel);
+  });
+</script>
+</body>
+</html>
