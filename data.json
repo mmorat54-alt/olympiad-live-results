@@ -2933,7 +2933,8 @@
       "scorers": [],
       "note": "",
       "sportKey": "futsal",
-      "appliedToTable": true
+      "appliedToTable": true,
+      "streamEmbed": ""
     },
     {
       "sport": "فوتسال",
@@ -2950,7 +2951,8 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "sportKey": "futsal"
+      "sportKey": "futsal",
+      "streamEmbed": "<iframe \n  src=\"https://www.anten.ir/futsal/184057\" \n  width=\"100%\" \n  height=\"600\" \n  frameborder=\"0\" \n  allowfullscreen>\n</iframe>"
     }
   ]
 }
