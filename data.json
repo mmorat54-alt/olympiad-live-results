@@ -2126,12 +2126,12 @@
         "گروه B": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 0,
-            "w": 0,
+            "p": 1,
+            "w": 1,
             "d": 0,
             "l": 0,
-            "diff": "0",
-            "pts": 0,
+            "diff": "+1",
+            "pts": 3,
             "q": false
           },
           {
@@ -2156,11 +2156,11 @@
           },
           {
             "name": "دانشگاه خلیج فارس بوشهر",
-            "p": 0,
+            "p": 1,
             "w": 0,
             "d": 0,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-1",
             "pts": 0,
             "q": false
           }
@@ -2940,7 +2940,7 @@
       "sport": "فوتسال",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه خلیج فارس بوشهر",
-      "status": "live",
+      "status": "finished",
       "time": "16:00",
       "score1": 1,
       "score2": 0,
@@ -2958,7 +2958,8 @@
       ],
       "note": "",
       "sportKey": "futsal",
-      "streamEmbed": "https://www.anten.ir/futsal/184057/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AE%D9%84%DB%8C%D8%AC-%D9%81%D8%A7%D8%B1%D8%B3-%D8%A8%D9%88%D8%B4%D9%87%D8%B1"
+      "streamEmbed": "https://www.anten.ir/futsal/184057/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AE%D9%84%DB%8C%D8%AC-%D9%81%D8%A7%D8%B1%D8%B3-%D8%A8%D9%88%D8%B4%D9%87%D8%B1",
+      "appliedToTable": true
     },
     {
       "sport": "فوتبال",
