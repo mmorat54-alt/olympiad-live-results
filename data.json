@@ -2946,9 +2946,9 @@
       "score2": 0,
       "half": 1,
       "halfDurationMinutes": 20,
-      "clockRunning": false,
-      "clockBaseSeconds": 0,
-      "clockStartedAt": null,
+      "clockRunning": true,
+      "clockBaseSeconds": 53,
+      "clockStartedAt": "2026-08-23T13:02:53.398Z",
       "scorers": [
         {
           "team": 1,
