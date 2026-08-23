@@ -253,6 +253,17 @@
     color: var(--text-dim); text-transform:uppercase;
   }
   .feed-empty{ text-align:center; color:var(--text-dim); padding:40px 0; font-size:13px; }
+  .feed-countdown{
+    font-family:'Oswald', sans-serif; font-weight:700; font-size:15px; color: var(--gold);
+    font-variant-numeric: tabular-nums;
+  }
+  .watch-live-btn{
+    margin-top:12px; width:100%; display:flex; align-items:center; justify-content:center; gap:8px;
+    background: rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.4); color:#fca5a5;
+    padding:10px 14px; border-radius:10px; font-family:'Vazirmatn',sans-serif; font-weight:700;
+    font-size:13px; cursor:pointer; -webkit-tap-highlight-color: transparent; transition: background .2s ease;
+  }
+  .watch-live-btn:hover, .watch-live-btn:active{ background: rgba(239,68,68,.22); }
   .feed-scorers{ margin-top:8px; display:flex; flex-direction:column; gap:3px; }
   .scorer-line{ font-size:11.5px; color: var(--text-dim); }
   .scorer-min{ color: var(--text); font-family:'Oswald',sans-serif; font-weight:600; }
@@ -317,6 +328,20 @@
       </div>
     </div>
 
+    <div id="view-stream" class="view">
+      <button class="back-btn" onclick="closeStream()">→ بازگشت</button>
+      <div class="section">
+        <div class="head">
+          <div class="head-titles">
+            <span class="eyebrow">پخش زنده</span>
+            <span class="title" id="streamTitle"></span>
+          </div>
+          <div class="live-badge"><span class="dot"></span> زنده</div>
+        </div>
+        <div id="streamContainer" class="feed-stream"></div>
+      </div>
+    </div>
+
     <div id="view-sport" class="view">
       <button class="back-btn" onclick="goHome()">→ بازگشت</button>
       <div class="section">
@@ -346,6 +371,7 @@
   const DATA_URL = 'data.json';
   let DATA = null;
   let feedClockInterval = null;
+  let feedSorted = [];
 
   function fmtNow(){ return 'همین الان'; }
 
@@ -357,6 +383,19 @@
   function goHome(){
     if (feedClockInterval){ clearInterval(feedClockInterval); feedClockInterval = null; }
     showView('view-home');
+  }
+
+  function openStream(feedIdx){
+    const m = feedSorted[feedIdx];
+    if (!m || !m.streamEmbed) return;
+    document.getElementById('streamTitle').textContent = `${m.team1} در برابر ${m.team2}`;
+    document.getElementById('streamContainer').innerHTML = m.streamEmbed;
+    showView('view-stream');
+  }
+
+  function closeStream(){
+    document.getElementById('streamContainer').innerHTML = '';
+    showView('view-livefeed');
   }
 
   function escFeed(str){
@@ -390,6 +429,28 @@
     });
   }
 
+  function toLatinDigits(str){
+    return String(str ?? '')
+      .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+      .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  }
+
+  // Parses a "HH:MM" style start time (admin field) into a timestamp for the countdown.
+  // Assumes today; if that time has already passed by more than 5 minutes, assumes tomorrow.
+  function parseUpcomingTarget(timeStr){
+    const s = toLatinDigits(timeStr).trim();
+    const m = s.match(/^(\d{1,2}):(\d{2})$/);
+    if (!m) return null;
+    const h = parseInt(m[1], 10), min = parseInt(m[2], 10);
+    if (h > 23 || min > 59) return null;
+    const now = new Date();
+    const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, min, 0, 0);
+    if (target.getTime() < now.getTime() - 5*60*1000){
+      target.setDate(target.getDate() + 1);
+    }
+    return target.getTime();
+  }
+
   function computeElapsedSeconds(m){
     let sec = m.clockBaseSeconds || 0;
     if (m.clockRunning && m.clockStartedAt){
@@ -410,8 +471,9 @@
 
     const order = { live: 0, upcoming: 1, finished: 2 };
     const sorted = [...feed].sort((a,b) => (order[a.status] ?? 3) - (order[b.status] ?? 3));
+    feedSorted = sorted;
 
-    board.innerHTML = sorted.map(m => {
+    board.innerHTML = sorted.map((m, feedIdx) => {
       const leadTeam1 = (m.score1 ?? 0) > (m.score2 ?? 0);
       const leadTeam2 = (m.score2 ?? 0) > (m.score1 ?? 0);
 
@@ -437,7 +499,15 @@
         rightHTML = `<span class="feed-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
       } else {
         statusHTML = `<span class="feed-status-upcoming">به‌زودی</span>`;
-        rightHTML = `<span class="feed-time">${escFeed(m.time)}</span>`;
+        const target = parseUpcomingTarget(m.time);
+        if (target){
+          rightHTML = `
+            <span class="feed-time">ساعت ${escFeed(m.time)}</span>
+            <span class="feed-countdown" data-target="${target}">--:--:--</span>
+          `;
+        } else {
+          rightHTML = `<span class="feed-time">${escFeed(m.time)}</span>`;
+        }
       }
 
       return `
@@ -458,12 +528,12 @@
               ${rightHTML}
             </div>
           </div>
-          ${m.streamEmbed ? `<div class="feed-stream">${m.streamEmbed}</div>` : ''}
+          ${m.streamEmbed ? `<button class="watch-live-btn" onclick="openStream(${feedIdx})">🔴 مشاهده پخش زنده</button>` : ''}
         </div>
       `;
     }).join('');
 
-    feedClockInterval = setInterval(() => {
+    function tickFeedTimers(){
       document.querySelectorAll('.live-clock').forEach(el => {
         const base = parseFloat(el.getAttribute('data-base')) || 0;
         const started = el.getAttribute('data-started');
@@ -471,7 +541,24 @@
         if (started) sec += (Date.now() - new Date(started).getTime()) / 1000;
         el.textContent = Math.floor(Math.max(0, sec) / 60);
       });
-    }, 1000);
+      document.querySelectorAll('.feed-countdown').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        if (!target) return;
+        const diff = Math.floor((target - Date.now()) / 1000);
+        if (diff <= 0){
+          el.textContent = 'شروع شد';
+          return;
+        }
+        const pad = n => String(n).padStart(2, '0');
+        const hh = Math.floor(diff / 3600);
+        const mm = Math.floor((diff % 3600) / 60);
+        const ss = diff % 60;
+        el.textContent = hh > 0 ? `${pad(hh)}:${pad(mm)}:${pad(ss)}` : `${pad(mm)}:${pad(ss)}`;
+      });
+    }
+
+    tickFeedTimers();
+    feedClockInterval = setInterval(tickFeedTimers, 1000);
   }
 
   function matchHTML(t1,s1,t2,s2, extra, cls){
