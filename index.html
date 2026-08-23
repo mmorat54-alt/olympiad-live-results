@@ -248,11 +248,37 @@
     font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.08em;
     color: var(--gold); text-transform:uppercase;
   }
+  .feed-status-started{
+    display:flex; align-items:center; gap:6px; color:#fca5a5;
+    font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    white-space:nowrap;
+  }
   .feed-status-finished{
+    display:flex; align-items:center; gap:6px;
     font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.08em;
     color: var(--text-dim); text-transform:uppercase;
   }
+  .feed-status-finished .fchk{ color:#4ade80; font-size:13px; }
   .feed-empty{ text-align:center; color:var(--text-dim); padding:40px 0; font-size:13px; }
+  .feed-day-bar{ display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+  .feed-day-btn{
+    padding:8px 16px; border-radius:999px; border:1px solid var(--lane-line); background:var(--panel-2);
+    color:var(--text-dim); cursor:pointer; font-family:'Vazirmatn',sans-serif; font-size:12.5px; font-weight:700;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .feed-day-btn.active{ background:var(--gold); border-color:var(--gold); color:#1a1305; }
+  .feed-date-input{
+    padding:7px 12px; border-radius:999px; border:1px solid var(--lane-line); background:var(--panel-2);
+    color:var(--text); font-family:'Vazirmatn',sans-serif; font-size:12.5px; cursor:pointer; color-scheme: dark;
+  }
+  .feed-day-label{ font-size:12px; color:var(--text-dim); margin-bottom:14px; }
+  .feed-item.finished{
+    border-inline-start:3px solid rgba(74,222,128,.55); padding-inline-start:15px; opacity:.94;
+  }
+  .feed-final-score{
+    font-family:'Oswald', sans-serif; font-weight:800; font-size:20px;
+    font-variant-numeric: tabular-nums; color: var(--gold);
+  }
   .feed-countdown{
     font-family:'Oswald', sans-serif; font-weight:700; font-size:15px; color: var(--gold);
     font-variant-numeric: tabular-nums;
@@ -324,6 +350,11 @@
           </div>
           <div class="live-badge"><span class="dot"></span> زنده</div>
         </div>
+        <div class="feed-day-bar">
+          <button class="feed-day-btn active" id="dayTodayBtn" onclick="selectFeedDay('today')">امروز</button>
+          <input type="date" class="feed-date-input" id="feedDatePicker" onchange="selectFeedDay(this.value)">
+        </div>
+        <div class="feed-day-label" id="feedDayLabel"></div>
         <div class="board" id="feedBoard"></div>
       </div>
     </div>
@@ -357,6 +388,61 @@
   const DATA_URL = 'data.json';
   let DATA = null;
   let feedClockInterval = null;
+  let selectedFeedDate = null;
+
+  function pad2(n){ return String(n).padStart(2, '0'); }
+
+  function todayISO(){
+    const d = new Date();
+    return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+  }
+
+  // Gregorian -> Jalali (standard conversion algorithm), used only for display labels.
+  function toJalali(gy, gm, gd){
+    const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+    let jy = (gy <= 1600) ? 0 : 979;
+    gy -= (gy <= 1600) ? 621 : 1600;
+    const gy2 = (gm > 2) ? (gy + 1) : gy;
+    let days = 365*gy + Math.floor((gy2+3)/4) - Math.floor((gy2+99)/100) + Math.floor((gy2+399)/400) - 80 + gd + g_d_m[gm-1];
+    jy += 33 * Math.floor(days/12053);
+    days %= 12053;
+    jy += 4 * Math.floor(days/1461);
+    days %= 1461;
+    if (days > 365){
+      jy += Math.floor((days-1)/365);
+      days = (days-1) % 365;
+    }
+    let jm, jd;
+    if (days < 186){
+      jm = 1 + Math.floor(days/31);
+      jd = 1 + (days % 31);
+    } else {
+      jm = 7 + Math.floor((days-186)/30);
+      jd = 1 + ((days-186) % 30);
+    }
+    return [jy, jm, jd];
+  }
+
+  function formatJalaliLabel(iso){
+    const parts = String(iso || '').split('-').map(Number);
+    if (parts.length !== 3 || parts.some(isNaN)) return iso || '';
+    const [gy, gm, gd] = parts;
+    const [jy, jm, jd] = toJalali(gy, gm, gd);
+    const months = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+    const days = ['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه'];
+    const dow = days[new Date(gy, gm-1, gd).getDay()];
+    return `${dow} ${jd} ${months[jm-1]} ${jy}`;
+  }
+
+  function selectFeedDay(val){
+    selectedFeedDate = (!val || val === 'today') ? todayISO() : val;
+    const isToday = selectedFeedDate === todayISO();
+    const todayBtn = document.getElementById('dayTodayBtn');
+    const picker = document.getElementById('feedDatePicker');
+    if (todayBtn) todayBtn.classList.toggle('active', isToday);
+    if (picker) picker.value = isToday ? '' : selectedFeedDate;
+    renderLiveFeed();
+  }
 
   function fmtNow(){ return 'همین الان'; }
 
@@ -408,14 +494,21 @@
       .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
   }
 
-  // Parses a "HH:MM" style start time (admin field) into a timestamp for the countdown.
-  // Assumes today; if that time has already passed by more than 5 minutes, assumes tomorrow.
-  function parseUpcomingTarget(timeStr){
-    const s = toLatinDigits(timeStr).trim();
-    const m = s.match(/^(\d{1,2}):(\d{2})$/);
-    if (!m) return null;
-    const h = parseInt(m[1], 10), min = parseInt(m[2], 10);
+  // Parses a "HH:MM" start time (admin field) into a timestamp for the countdown.
+  // If the match has an explicit date, uses that date; otherwise assumes today
+  // (or tomorrow, if that time has already passed by more than 5 minutes).
+  function parseUpcomingTarget(m){
+    const s = toLatinDigits(m.time).trim();
+    const tm = s.match(/^(\d{1,2}):(\d{2})$/);
+    if (!tm) return null;
+    const h = parseInt(tm[1], 10), min = parseInt(tm[2], 10);
     if (h > 23 || min > 59) return null;
+    if (m.date){
+      const dm = String(m.date).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (dm){
+        return new Date(parseInt(dm[1],10), parseInt(dm[2],10)-1, parseInt(dm[3],10), h, min, 0, 0).getTime();
+      }
+    }
     const now = new Date();
     const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, min, 0, 0);
     if (target.getTime() < now.getTime() - 5*60*1000){
@@ -435,10 +528,15 @@
   function renderLiveFeed(){
     const board = document.getElementById('feedBoard');
     if (feedClockInterval){ clearInterval(feedClockInterval); feedClockInterval = null; }
+    if (!selectedFeedDate) selectedFeedDate = todayISO();
 
-    const feed = DATA.liveFeed || [];
+    const label = document.getElementById('feedDayLabel');
+    const isToday = selectedFeedDate === todayISO();
+    if (label) label.textContent = (isToday ? 'امروز — ' : '') + formatJalaliLabel(selectedFeedDate);
+
+    const feed = (DATA.liveFeed || []).filter(m => (m.date || todayISO()) === selectedFeedDate);
     if (!feed.length){
-      board.innerHTML = '<div class="feed-empty">در حال حاضر بازی زنده یا پیش رویی ثبت نشده است.</div>';
+      board.innerHTML = `<div class="feed-empty">${isToday ? 'در حال حاضر بازی زنده یا پیش‌رویی برای امروز ثبت نشده است.' : 'برای این تاریخ بازی‌ای ثبت نشده است.'}</div>`;
       return;
     }
 
@@ -457,38 +555,49 @@
 
       let statusHTML, rightHTML;
       if (m.status === 'live'){
-        const halfLabel = m.half === 2 ? 'نیمه دوم' : 'نیمه اول';
-        const dur = m.halfDurationMinutes || 45;
-        const elapsedMin = Math.floor(computeElapsedSeconds(m) / 60);
-        if (m.clockRunning){
-          statusHTML = `<span class="feed-status-live"><span class="dot"></span> ${halfLabel} — <span class="live-clock" data-base="${m.clockBaseSeconds||0}" data-started="${m.clockStartedAt||''}">${elapsedMin}</span>′ / ${dur}′</span>`;
+        const pf = m.periodFormat || 'half';
+        if (pf === 'none'){
+          statusHTML = `<span class="feed-status-live"><span class="dot"></span> در حال برگزاری</span>`;
         } else {
-          statusHTML = `<span class="feed-status-paused">${halfLabel} — متوقف (${elapsedMin}′ / ${dur}′)</span>`;
+          const totalPeriods = pf === 'quarter' ? 4 : 2;
+          const periodWord = pf === 'quarter' ? 'کوارتر' : 'نیمه';
+          const periodNum = Math.min(m.half || 1, totalPeriods);
+          const periodLabel = (pf === 'half')
+            ? (periodNum === 2 ? 'نیمه دوم' : 'نیمه اول')
+            : `${periodWord} ${periodNum}`;
+          const dur = m.halfDurationMinutes || (pf === 'quarter' ? 10 : 45);
+          const elapsedMin = Math.floor(computeElapsedSeconds(m) / 60);
+          if (m.clockRunning){
+            statusHTML = `<span class="feed-status-live"><span class="dot"></span> ${periodLabel} — <span class="live-clock" data-base="${m.clockBaseSeconds||0}" data-started="${m.clockStartedAt||''}">${elapsedMin}</span>′ / ${dur}′</span>`;
+          } else {
+            statusHTML = `<span class="feed-status-paused">${periodLabel} — متوقف (${elapsedMin}′ / ${dur}′)</span>`;
+          }
         }
         rightHTML = `<span class="feed-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
       } else if (m.status === 'finished'){
-        statusHTML = `<span class="feed-status-finished">پایان یافت</span>`;
-        rightHTML = `<span class="feed-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
+        statusHTML = `<span class="feed-status-finished"><span class="fchk">✔</span> نتیجه نهایی</span>`;
+        rightHTML = `<span class="feed-final-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
       } else {
-        statusHTML = `<span class="feed-status-upcoming">به‌زودی</span>`;
-        const target = parseUpcomingTarget(m.time);
+        const target = parseUpcomingTarget(m);
         if (target){
+          statusHTML = `<span class="feed-status-upcoming feed-auto-status" data-target="${target}">به‌زودی</span>`;
           rightHTML = `
             <span class="feed-time">ساعت ${escFeed(m.time)}</span>
             <span class="feed-countdown" data-target="${target}">--:--:--</span>
           `;
         } else {
+          statusHTML = `<span class="feed-status-upcoming">به‌زودی</span>`;
           rightHTML = `<span class="feed-time">${escFeed(m.time)}</span>`;
         }
       }
 
       const streamUrl = String(m.streamEmbed || '').trim();
-      const streamLinkHTML = /^https?:\/\//i.test(streamUrl)
+      const streamLinkHTML = (m.status === 'live' && /^https?:\/\//i.test(streamUrl))
         ? `<a class="watch-live-btn" href="${escFeed(streamUrl)}" target="_blank" rel="noopener noreferrer">🔴 مشاهده پخش زنده</a>`
         : '';
 
       return `
-        <div class="feed-item">
+        <div class="feed-item${m.status === 'finished' ? ' finished' : ''}">
           <div class="feed-item-top">
             <div style="flex:1; min-width:0;">
               <div class="feed-sport">${escFeed(m.sport)}</div>
@@ -523,7 +632,7 @@
         if (!target) return;
         const diff = Math.floor((target - Date.now()) / 1000);
         if (diff <= 0){
-          el.textContent = 'شروع شد';
+          el.style.display = 'none';
           return;
         }
         const pad = n => String(n).padStart(2, '0');
@@ -531,6 +640,13 @@
         const mm = Math.floor((diff % 3600) / 60);
         const ss = diff % 60;
         el.textContent = hh > 0 ? `${pad(hh)}:${pad(mm)}:${pad(ss)}` : `${pad(mm)}:${pad(ss)}`;
+      });
+      document.querySelectorAll('.feed-auto-status').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        if (!target || Date.now() < target) return;
+        el.classList.remove('feed-status-upcoming', 'feed-auto-status');
+        el.classList.add('feed-status-started');
+        el.innerHTML = '<span class="dot"></span> شروع شد';
       });
     }
 
@@ -637,7 +753,7 @@
     const feedCard = document.createElement('div');
     feedCard.className = 'menu-card wide';
     feedCard.innerHTML = `<span class="icon">📡</span><span class="label">نتایج زنده و بازی‌های پیش رو</span>`;
-    feedCard.addEventListener('click', () => { renderLiveFeed(); showView('view-livefeed'); });
+    feedCard.addEventListener('click', () => { selectFeedDay('today'); showView('view-livefeed'); });
     grid.appendChild(feedCard);
 
     DATA.sports.forEach(sport => {
