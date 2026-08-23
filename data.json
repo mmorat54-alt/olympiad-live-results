@@ -1967,5 +1967,39 @@
         null
       ]
     }
+  ],
+  "liveFeed": [
+    {
+      "sport": "فوتسال ",
+      "team1": "دانشگاه علمی کاربردی آذربایجان شرقی ",
+      "team2": "دانشگاه شهید بهشتی",
+      "status": "finished",
+      "time": "",
+      "score1": 10,
+      "score2": 2,
+      "half": 2,
+      "halfDurationMinutes": 20,
+      "clockRunning": true,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": "2026-08-23T08:44:57.067Z",
+      "scorers": [],
+      "note": ""
+    },
+    {
+      "sport": "",
+      "team1": "",
+      "team2": "",
+      "status": "upcoming",
+      "time": "",
+      "score1": 0,
+      "score2": 0,
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": ""
+    }
   ]
 }
