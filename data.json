@@ -1433,12 +1433,12 @@
         "گروه A": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
@@ -1463,12 +1463,12 @@
           },
           {
             "name": "دانشگاه ملی مهارت مازندران",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           }
         ],
@@ -1744,11 +1744,11 @@
         "گروه C": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 0,
+            "p": 1,
             "w": 0,
             "d": 0,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-1",
             "pts": 0,
             "q": false
           },
@@ -1774,12 +1774,12 @@
           },
           {
             "name": "دانشگاه علم و صنعت ایران",
-            "p": 0,
-            "w": 0,
+            "p": 1,
+            "w": 1,
             "d": 0,
             "l": 0,
-            "diff": "0",
-            "pts": 0,
+            "diff": "+1",
+            "pts": 3,
             "q": false
           }
         ],
@@ -1993,22 +1993,22 @@
         "گروه D": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
             "name": "دانشگاه بوعلی سینا همدان",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
@@ -2966,7 +2966,7 @@
       "sportKey": "football",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه علم و صنعت ایران",
-      "status": "live",
+      "status": "finished",
       "time": "16:30",
       "score1": 0,
       "score2": 1,
@@ -2983,7 +2983,7 @@
         }
       ],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/football/184029/%D9%81%D9%88%D8%AA%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B9%D9%84%D9%85-%D9%88-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86"
     },
     {
@@ -2991,7 +2991,7 @@
       "sportKey": "basketball",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه بوعلی سینا همدان",
-      "status": "live",
+      "status": "finished",
       "time": "16:30",
       "score1": 0,
       "score2": 0,
@@ -3002,7 +3002,7 @@
       "clockStartedAt": "2026-08-23T13:23:34.762Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/basketball/184036/%D8%A8%D8%B3%DA%A9%D8%AA%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%A8%D9%88%D8%B9%D9%84%DB%8C-%D9%87%D9%85%D8%AF%D8%A7%D9%86"
     },
     {
@@ -3010,7 +3010,7 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه ملی مهارت مازندران",
-      "status": "live",
+      "status": "finished",
       "time": "16:30",
       "score1": 0,
       "score2": 0,
@@ -3021,7 +3021,7 @@
       "clockStartedAt": "2026-08-23T13:23:38.122Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/volleyball/184030/%D9%88%D8%A7%D9%84%DB%8C%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D9%85%D9%84%DB%8C-%D9%85%D9%87%D8%A7%D8%B1%D8%AA-%D9%85%D8%A7%D8%B2%D9%86%D8%AF%D8%B1%D8%A7%D9%86"
     },
     {
