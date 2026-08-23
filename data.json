@@ -2940,16 +2940,22 @@
       "sport": "فوتسال",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه خلیج فارس بوشهر",
-      "status": "upcoming",
+      "status": "live",
       "time": "16:00",
-      "score1": 0,
+      "score1": 1,
       "score2": 0,
       "half": 1,
       "halfDurationMinutes": 20,
       "clockRunning": false,
       "clockBaseSeconds": 0,
       "clockStartedAt": null,
-      "scorers": [],
+      "scorers": [
+        {
+          "team": 1,
+          "name": "",
+          "minute": 1
+        }
+      ],
       "note": "",
       "sportKey": "futsal",
       "streamEmbed": "https://www.anten.ir/futsal/184057/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%AE%D9%84%DB%8C%D8%AC-%D9%81%D8%A7%D8%B1%D8%B3-%D8%A8%D9%88%D8%B4%D9%87%D8%B1"
