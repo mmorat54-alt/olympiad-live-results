@@ -2936,11 +2936,11 @@
       "appliedToTable": true
     },
     {
-      "sport": "",
-      "team1": "",
-      "team2": "",
+      "sport": "فوتسال",
+      "team1": "دانشگاه صنعتی شاهرود",
+      "team2": "دانشگاه خلیج فارس بوشهر",
       "status": "upcoming",
-      "time": "",
+      "time": "16:00",
       "score1": 0,
       "score2": 0,
       "half": 1,
@@ -2949,7 +2949,8 @@
       "clockBaseSeconds": 0,
       "clockStartedAt": null,
       "scorers": [],
-      "note": ""
+      "note": "",
+      "sportKey": "futsal"
     }
   ]
 }
