@@ -15,7 +15,6 @@
   body{ margin:0; background:var(--bg); color:var(--text); font-family:'Vazirmatn',sans-serif; padding:20px 14px 60px; }
   .wrap{ max-width: 980px; margin:0 auto; }
 
-  /* ---- login gate ---- */
   #gate{ min-height:80vh; display:flex; align-items:center; justify-content:center; }
   .gate-box{
     background:var(--panel); border:1px solid var(--line); border-radius:16px;
@@ -32,9 +31,9 @@
     width:100%; padding:12px 14px; border-radius:10px; border:none; cursor:pointer;
     background:var(--gold); color:#1a1305; font-weight:700; font-family:inherit; font-size:14px;
   }
+  .gate-box button:disabled{ opacity:.6; cursor:default; }
   .gate-err{ color:var(--red); font-size:12px; margin-top:10px; min-height:14px; }
 
-  /* ---- admin shell ---- */
   #admin{ display:none; }
   .top-row{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
   .top-title{ font-size:18px; font-weight:800; }
@@ -45,9 +44,16 @@
   }
   .btn-sm.gold{ background:var(--gold); color:#1a1305; border-color:var(--gold); }
   .btn-sm.danger{ border-color:var(--red); color:#fca5a5; }
+  .btn-sm:disabled{ opacity:.5; cursor:default; }
   input[type=file]{ display:none; }
 
+  select{
+    padding:8px 9px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--text); font-family:inherit; font-size:12.5px;
+  }
+
   .save-status{ font-size:11.5px; color:var(--green); min-height:16px; margin-bottom:14px; }
+  .save-status.err{ color:#fca5a5; }
 
   .tabs{ display:flex; gap:8px; overflow-x:auto; margin-bottom:18px; padding-bottom:4px; }
   .tab{
@@ -67,7 +73,6 @@
     width:100%; padding:8px 9px; border-radius:8px; border:1px solid var(--line);
     background:var(--panel-2); color:var(--text); font-family:inherit; font-size:12.5px;
   }
-  .row-label{ display:none; }
   .col-head{ display:grid; grid-template-columns: 1.6fr .8fr .6fr .6fr .6fr .6fr auto; gap:8px; font-size:10.5px; color:var(--text-dim); margin-bottom:6px; padding:0 2px; }
   .del-btn{
     background:none; border:1px solid var(--red); color:#fca5a5; border-radius:8px; cursor:pointer;
@@ -95,6 +100,13 @@
   .match-extra input{ font-size:10.5px; }
   .subhead{ font-size:11px; color:var(--text-dim); margin: 14px 0 8px; }
 
+  .clock-box{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px; margin-top:8px; }
+  .clock-display{ font-size:12px; margin-bottom:8px; }
+  .clock-btns{ display:flex; gap:6px; flex-wrap:wrap; }
+  .clock-btns .btn-sm{ flex:0 0 auto; }
+  .half-dur-lbl{ font-size:11px; color:var(--text-dim); display:flex; flex-direction:column; gap:4px; }
+  .half-dur-lbl input{ padding:7px 8px; border-radius:7px; border:1px solid var(--line); background:var(--panel-2); color:var(--text); font-family:inherit; font-size:11.5px; }
+
   @media (max-width: 720px){
     .row, .col-head{ grid-template-columns: 1fr 1fr; }
     .col-head span:nth-child(n+3){ display:none; }
@@ -104,27 +116,23 @@
 </style>
 </head>
 <body>
-
-  <!-- ===================== LOGIN GATE ===================== -->
   <div id="gate">
     <div class="gate-box">
       <h1>پنل مدیریت نتایج المپیاد</h1>
       <p>برای ورود، رمز عبور را وارد کنید</p>
       <input id="pwInput" type="password" placeholder="رمز عبور" onkeydown="if(event.key==='Enter')tryLogin()">
-      <button onclick="tryLogin()">ورود</button>
+      <button id="loginBtn" onclick="tryLogin()">ورود</button>
       <div class="gate-err" id="gateErr"></div>
     </div>
   </div>
 
-  <!-- ===================== ADMIN PANEL ===================== -->
   <div id="admin" class="wrap">
     <div class="top-row">
       <div class="top-title">پنل مدیریت نتایج</div>
       <div class="top-actions">
-        <label class="btn-sm" for="fileInput">📂 بارگذاری data.json</label>
-        <input id="fileInput" type="file" accept=".json,application/json" onchange="loadFile(event)">
-        <button class="btn-sm" onclick="copyJSON()">📋 کپی JSON</button>
-        <button class="btn-sm gold" onclick="downloadJSON()">⬇ دانلود data.json</button>
+        <button class="btn-sm" onclick="reloadFromGithub()">🔄 بارگذاری مجدد</button>
+        <button class="btn-sm gold" id="saveBtn" onclick="saveToGithub()">💾 ذخیره روی گیت‌هاب</button>
+        <button class="btn-sm danger" onclick="doLogout()">خروج</button>
       </div>
     </div>
     <div class="save-status" id="saveStatus"></div>
@@ -134,80 +142,103 @@
   </div>
 
 <script>
-  /* ================= AUTH (client-side gate — for casual protection only) ================= */
-  const ADMIN_PASSWORD = 'olympiad17'; // ← این رمز را عوض کنید
+  let DATA = { teams: [], sports: [], liveFeed: [] };
+  let CURRENT_SHA = null;
 
-  function tryLogin(){
+  async function tryLogin(){
     const val = document.getElementById('pwInput').value;
-    if (val === ADMIN_PASSWORD){
-      document.getElementById('gate').style.display = 'none';
-      document.getElementById('admin').style.display = 'block';
-      sessionStorage.setItem('olympiad_admin_ok', '1');
-      init();
-    } else {
-      document.getElementById('gateErr').textContent = 'رمز عبور اشتباه است';
+    const btn = document.getElementById('loginBtn');
+    btn.disabled = true;
+    document.getElementById('gateErr').textContent = '';
+    try{
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ password: val })
+      });
+      const json = await res.json();
+      if (json.ok){
+        document.getElementById('gate').style.display = 'none';
+        document.getElementById('admin').style.display = 'block';
+        await init();
+      } else {
+        document.getElementById('gateErr').textContent = json.error || 'رمز عبور اشتباه است';
+      }
+    }catch(e){
+      document.getElementById('gateErr').textContent = 'خطا در اتصال به سرور';
+    }
+    btn.disabled = false;
+  }
+
+  async function doLogout(){
+    await fetch('/api/logout', { method: 'POST' });
+    location.reload();
+  }
+
+  function status(msg, isErr){
+    const el = document.getElementById('saveStatus');
+    el.className = 'save-status' + (isErr ? ' err' : '');
+    el.textContent = msg;
+    setTimeout(() => { if (el.textContent === msg) el.textContent=''; }, 5000);
+  }
+
+  async function init(){
+    await reloadFromGithub();
+  }
+
+  async function reloadFromGithub(){
+    status('در حال بارگذاری از گیت‌هاب...');
+    try{
+      const res = await fetch('/api/get-data');
+      const json = await res.json();
+      if (!json.ok){
+        status(json.error || 'خطا در بارگذاری', true);
+        return;
+      }
+      DATA = json.data;
+      if (!DATA.liveFeed) DATA.liveFeed = [];
+      CURRENT_SHA = json.sha;
+      buildTabs();
+      status('دیتا بارگذاری شد.');
+    }catch(e){
+      status('خطا در اتصال به سرور', true);
     }
   }
-  if (sessionStorage.getItem('olympiad_admin_ok') === '1'){
-    document.getElementById('gate').style.display = 'none';
-    document.getElementById('admin').style.display = 'block';
-    window.addEventListener('DOMContentLoaded', init);
+
+  async function saveToGithub(){
+    const btn = document.getElementById('saveBtn');
+    btn.disabled = true;
+    status('در حال ذخیره روی گیت‌هاب...');
+    try{
+      const res = await fetch('/api/save-data', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ data: DATA, sha: CURRENT_SHA })
+      });
+      const json = await res.json();
+      if (!json.ok){
+        status(json.error || 'خطا در ذخیره', true);
+        btn.disabled = false;
+        return;
+      }
+      CURRENT_SHA = json.newSha;
+      status('✅ با موفقیت روی گیت‌هاب ذخیره شد.');
+    }catch(e){
+      status('خطا در اتصال به سرور', true);
+    }
+    btn.disabled = false;
   }
 
-  /* ================= DATA ================= */
-  let DATA = { teams: [], sports: [] };
-
-  function init(){
-    fetch('data.json', { cache: 'no-store' })
-      .then(r => r.json())
-      .then(json => { DATA = json; buildTabs(); })
-      .catch(() => { buildTabs(); status('فایل data.json پیدا نشد — می‌توانید از صفر شروع کنید یا فایل را بارگذاری کنید.', true); });
-  }
-
-  function status(msg, isWarn){
-    const el = document.getElementById('saveStatus');
-    el.style.color = isWarn ? '#fca5a5' : '';
-    el.textContent = msg;
-    setTimeout(() => { if (el.textContent === msg) el.textContent=''; }, 4000);
-  }
-
-  function loadFile(ev){
-    const file = ev.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try{
-        DATA = JSON.parse(reader.result);
-        buildTabs();
-        status('فایل با موفقیت بارگذاری شد.');
-      }catch(e){ alert('فایل JSON معتبر نیست.'); }
-    };
-    reader.readAsText(file);
-  }
-
-  function downloadJSON(){
-    const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'data.json';
-    a.click();
-    status('data.json دانلود شد — آن را جایگزین فایل قبلی روی هاست کنید.');
-  }
-
-  function copyJSON(){
-    navigator.clipboard.writeText(JSON.stringify(DATA, null, 2))
-      .then(() => status('JSON در کلیپ‌بورد کپی شد.'));
-  }
-
-  /* ================= TABS ================= */
   function buildTabs(){
     const tabsEl = document.getElementById('tabs');
     const panelsEl = document.getElementById('panels');
     tabsEl.innerHTML = '';
     panelsEl.innerHTML = '';
 
-    const tabDefs = [{ key: 'leaderboard', label: 'رتبه‌بندی کلی' }]
-      .concat(DATA.sports.map(s => ({ key: s.key, label: s.label })));
+    const tabDefs = [
+      { key: 'leaderboard', label: 'رتبه‌بندی کلی' },
+      { key: 'livefeed', label: 'نتایج زنده' }
+    ].concat(DATA.sports.map(s => ({ key: s.key, label: s.label })));
 
     tabDefs.forEach((t, i) => {
       const tab = document.createElement('button');
@@ -228,10 +259,10 @@
     });
 
     renderLeaderboardPanel();
+    renderLiveFeedPanel();
     DATA.sports.forEach(sport => renderSportPanel(sport));
   }
 
-  /* ================= LEADERBOARD PANEL ================= */
   function renderLeaderboardPanel(){
     const panel = document.getElementById('panel-leaderboard');
     panel.innerHTML = `
@@ -270,6 +301,169 @@
   function removeTeam(idx){
     DATA.teams.splice(idx,1);
     renderTeamRows();
+  }
+
+  /* ================= LIVE FEED PANEL ================= */
+  function computeElapsedSecondsAdmin(m){
+    let sec = m.clockBaseSeconds || 0;
+    if (m.clockRunning && m.clockStartedAt){
+      sec += (Date.now() - new Date(m.clockStartedAt).getTime()) / 1000;
+    }
+    return Math.max(0, Math.floor(sec));
+  }
+
+  function renderLiveFeedPanel(){
+    if (!DATA.liveFeed) DATA.liveFeed = [];
+    const panel = document.getElementById('panel-livefeed');
+    panel.innerHTML = `
+      <div class="card">
+        <h3>بازی‌های زنده و پیش رو</h3>
+        <p style="font-size:11.5px;color:var(--text-dim);margin:0 0 12px;">هر بازی را اضافه کنید، وضعیتش را انتخاب کنید و برای بازی‌های زنده از دکمه‌های ساعت برای شروع/توقف استفاده کنید. بعد از هر تغییر «ذخیره روی گیت‌هاب» را بزنید تا تماشاگران ببینند.</p>
+        <div id="feedRows"></div>
+        <button class="btn-sm add-row-btn" onclick="addFeedItem()">+ افزودن بازی</button>
+      </div>
+    `;
+    renderFeedRows();
+  }
+
+  function renderFeedRows(){
+    const box = document.getElementById('feedRows');
+    box.innerHTML = '';
+    DATA.liveFeed.forEach((m, idx) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'group-card';
+
+      let scoreFieldsHTML = '';
+      if (m.status === 'upcoming'){
+        scoreFieldsHTML = `
+          <input type="text" placeholder="زمان شروع (مثلاً ۱۶:۳۰)" value="${esc(m.time||'')}" oninput="DATA.liveFeed[${idx}].time=this.value">
+        `;
+      } else {
+        scoreFieldsHTML = `
+          <input type="number" placeholder="امتیاز تیم ۱" value="${m.score1 ?? 0}" oninput="DATA.liveFeed[${idx}].score1=Number(this.value)">
+          <input type="number" placeholder="امتیاز تیم ۲" value="${m.score2 ?? 0}" oninput="DATA.liveFeed[${idx}].score2=Number(this.value)">
+        `;
+      }
+
+      let clockControlsHTML = '';
+      if (m.status === 'live'){
+        const elapsedMin = Math.floor(computeElapsedSecondsAdmin(m) / 60);
+        clockControlsHTML = `
+          <div class="clock-box">
+            <div class="clock-display">دقیقه فعلی: <b>${elapsedMin}′</b> — ${m.clockRunning ? 'در حال اجرا' : 'متوقف'} — نیمه ${m.half === 2 ? 'دوم' : 'اول'}</div>
+            <div class="clock-btns">
+              <button class="btn-sm gold" onclick="clockStart(${idx})">▶ شروع / ادامه</button>
+              <button class="btn-sm" onclick="clockPause(${idx})">⏸ توقف (بین نیمه)</button>
+              <button class="btn-sm" onclick="clockSecondHalf(${idx})">🔁 شروع نیمه دوم</button>
+              <button class="btn-sm danger" onclick="clockReset(${idx})">🔄 صفر کردن ساعت</button>
+            </div>
+            <label class="half-dur-lbl" style="margin-top:8px; max-width:200px;">
+              مدت هر نیمه (دقیقه)
+              <input type="number" value="${m.halfDurationMinutes ?? 20}" oninput="DATA.liveFeed[${idx}].halfDurationMinutes=Number(this.value)">
+            </label>
+          </div>
+        `;
+      }
+
+      const scorersHTML = (m.scorers||[]).map((s, si) => `
+        <div class="g-row" style="grid-template-columns: .8fr 1.4fr .6fr auto;">
+          <select onchange="DATA.liveFeed[${idx}].scorers[${si}].team=Number(this.value)">
+            <option value="1" ${s.team===1?'selected':''}>${esc(m.team1)||'تیم ۱'}</option>
+            <option value="2" ${s.team===2?'selected':''}>${esc(m.team2)||'تیم ۲'}</option>
+          </select>
+          <input type="text" placeholder="نام بازیکن" value="${esc(s.name)}" oninput="DATA.liveFeed[${idx}].scorers[${si}].name=this.value">
+          <input type="number" placeholder="دقیقه" value="${s.minute ?? 0}" oninput="DATA.liveFeed[${idx}].scorers[${si}].minute=Number(this.value)">
+          <button class="del-btn" onclick="removeScorer(${idx},${si})">حذف</button>
+        </div>
+      `).join('');
+
+      wrap.innerHTML = `
+        <div class="g-row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+          <input type="text" placeholder="رشته (مثلاً فوتسال)" value="${esc(m.sport)}" oninput="DATA.liveFeed[${idx}].sport=this.value">
+          <input type="text" placeholder="تیم ۱" value="${esc(m.team1)}" oninput="DATA.liveFeed[${idx}].team1=this.value; renderFeedRows();">
+          <input type="text" placeholder="تیم ۲" value="${esc(m.team2)}" oninput="DATA.liveFeed[${idx}].team2=this.value; renderFeedRows();">
+          <select onchange="setFeedStatus(${idx}, this.value)">
+            <option value="upcoming" ${m.status==='upcoming'?'selected':''}>به‌زودی</option>
+            <option value="live" ${m.status==='live'?'selected':''}>در حال برگزاری</option>
+            <option value="finished" ${m.status==='finished'?'selected':''}>پایان یافته</option>
+          </select>
+        </div>
+        <div class="g-row" style="grid-template-columns: 1fr 1fr; margin-top:6px;">
+          ${scoreFieldsHTML}
+        </div>
+        ${clockControlsHTML}
+        <div class="subhead">زننده‌های گل (نام و دقیقه)</div>
+        ${scorersHTML}
+        <button class="btn-sm" onclick="addScorer(${idx})">+ افزودن گل</button>
+        <div class="g-row" style="grid-template-columns: 1fr auto; margin-top:10px;">
+          <input type="text" placeholder="توضیح تکمیلی (اختیاری)" value="${esc(m.note||'')}" oninput="DATA.liveFeed[${idx}].note=this.value">
+          <button class="del-btn" onclick="removeFeedItem(${idx})">حذف کل بازی</button>
+        </div>
+      `;
+      box.appendChild(wrap);
+    });
+  }
+
+  function setFeedStatus(idx, val){
+    DATA.liveFeed[idx].status = val;
+    if (val === 'live'){
+      DATA.liveFeed[idx].half = DATA.liveFeed[idx].half || 1;
+      DATA.liveFeed[idx].halfDurationMinutes = DATA.liveFeed[idx].halfDurationMinutes || 20;
+    }
+    renderFeedRows();
+  }
+
+  function addFeedItem(){
+    DATA.liveFeed.push({
+      sport:'', team1:'', team2:'', status:'upcoming', time:'',
+      score1:0, score2:0, half:1, halfDurationMinutes:20,
+      clockRunning:false, clockBaseSeconds:0, clockStartedAt:null,
+      scorers: [], note:''
+    });
+    renderFeedRows();
+  }
+  function removeFeedItem(idx){
+    DATA.liveFeed.splice(idx,1);
+    renderFeedRows();
+  }
+  function addScorer(idx){
+    if (!DATA.liveFeed[idx].scorers) DATA.liveFeed[idx].scorers = [];
+    DATA.liveFeed[idx].scorers.push({ team:1, name:'', minute:0 });
+    renderFeedRows();
+  }
+  function removeScorer(idx, si){
+    DATA.liveFeed[idx].scorers.splice(si,1);
+    renderFeedRows();
+  }
+
+  function clockStart(idx){
+    const m = DATA.liveFeed[idx];
+    if (!m.clockRunning){
+      m.clockStartedAt = new Date().toISOString();
+      m.clockRunning = true;
+    }
+    renderFeedRows();
+  }
+  function clockPause(idx){
+    const m = DATA.liveFeed[idx];
+    if (m.clockRunning){
+      m.clockBaseSeconds = computeElapsedSecondsAdmin(m);
+      m.clockRunning = false;
+      m.clockStartedAt = null;
+    }
+    renderFeedRows();
+  }
+  function clockSecondHalf(idx){
+    DATA.liveFeed[idx].half = 2;
+    renderFeedRows();
+  }
+  function clockReset(idx){
+    const m = DATA.liveFeed[idx];
+    m.clockBaseSeconds = 0;
+    m.clockStartedAt = null;
+    m.clockRunning = false;
+    m.half = 1;
+    renderFeedRows();
   }
 
   /* ================= SPORT PANEL (groups + bracket) ================= */
