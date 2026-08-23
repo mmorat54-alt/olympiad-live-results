@@ -2944,11 +2944,11 @@
       "time": "16:00",
       "score1": 1,
       "score2": 0,
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 20,
       "clockRunning": true,
-      "clockBaseSeconds": 53,
-      "clockStartedAt": "2026-08-23T13:02:53.398Z",
+      "clockBaseSeconds": 0,
+      "clockStartedAt": "2026-08-23T13:24:39.122Z",
       "scorers": [
         {
           "team": 1,
