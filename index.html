@@ -328,20 +328,6 @@
       </div>
     </div>
 
-    <div id="view-stream" class="view">
-      <button class="back-btn" onclick="closeStream()">→ بازگشت</button>
-      <div class="section">
-        <div class="head">
-          <div class="head-titles">
-            <span class="eyebrow">پخش زنده</span>
-            <span class="title" id="streamTitle"></span>
-          </div>
-          <div class="live-badge"><span class="dot"></span> زنده</div>
-        </div>
-        <div id="streamContainer" class="feed-stream"></div>
-      </div>
-    </div>
-
     <div id="view-sport" class="view">
       <button class="back-btn" onclick="goHome()">→ بازگشت</button>
       <div class="section">
@@ -371,7 +357,6 @@
   const DATA_URL = 'data.json';
   let DATA = null;
   let feedClockInterval = null;
-  let feedSorted = [];
 
   function fmtNow(){ return 'همین الان'; }
 
@@ -385,18 +370,6 @@
     showView('view-home');
   }
 
-  function openStream(feedIdx){
-    const m = feedSorted[feedIdx];
-    if (!m || !m.streamEmbed) return;
-    document.getElementById('streamTitle').textContent = `${m.team1} در برابر ${m.team2}`;
-    document.getElementById('streamContainer').innerHTML = m.streamEmbed;
-    showView('view-stream');
-  }
-
-  function closeStream(){
-    document.getElementById('streamContainer').innerHTML = '';
-    showView('view-livefeed');
-  }
 
   function escFeed(str){
     return String(str ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -471,9 +444,8 @@
 
     const order = { live: 0, upcoming: 1, finished: 2 };
     const sorted = [...feed].sort((a,b) => (order[a.status] ?? 3) - (order[b.status] ?? 3));
-    feedSorted = sorted;
 
-    board.innerHTML = sorted.map((m, feedIdx) => {
+    board.innerHTML = sorted.map((m) => {
       const leadTeam1 = (m.score1 ?? 0) > (m.score2 ?? 0);
       const leadTeam2 = (m.score2 ?? 0) > (m.score1 ?? 0);
 
@@ -510,6 +482,11 @@
         }
       }
 
+      const streamUrl = String(m.streamEmbed || '').trim();
+      const streamLinkHTML = /^https?:\/\//i.test(streamUrl)
+        ? `<a class="watch-live-btn" href="${escFeed(streamUrl)}" target="_blank" rel="noopener noreferrer">🔴 مشاهده پخش زنده</a>`
+        : '';
+
       return `
         <div class="feed-item">
           <div class="feed-item-top">
@@ -528,7 +505,7 @@
               ${rightHTML}
             </div>
           </div>
-          ${m.streamEmbed ? `<button class="watch-live-btn" onclick="openStream(${feedIdx})">🔴 مشاهده پخش زنده</button>` : ''}
+          ${streamLinkHTML}
         </div>
       `;
     }).join('');
