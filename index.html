@@ -35,7 +35,6 @@
 
   .wrap{ max-width: 920px; margin: 0 auto; }
 
-  /* ---------- Home menu ---------- */
   .home-eyebrow{
     font-family:'Oswald', sans-serif; letter-spacing:.14em; font-size:11px;
     color: var(--text-dim); text-transform:uppercase; text-align:center; margin-bottom:6px;
@@ -66,11 +65,9 @@
   .view{ display:none; }
   .view.active{ display:block; }
 
-  /* ---------- Brand bar ---------- */
   .brand-bar{ display:flex; justify-content:center; padding: 4px 0 22px; }
   .brand-logo{ height: 40px; width: auto; display:block; }
 
-  /* ---------- Shared section header ---------- */
   .section{ margin-bottom: 40px; }
   .head{
     display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
@@ -101,7 +98,6 @@
   }
   .updated-row b{ color: var(--text); font-weight:600; }
 
-  /* ---------- Leaderboard ---------- */
   .board{ background: var(--panel); border: 1px solid var(--lane-line); border-radius: 16px; overflow: hidden; }
   .col-labels{
     display:grid; grid-template-columns: 56px 1fr 130px 90px; padding: 12px 18px;
@@ -140,7 +136,6 @@
 
   .foot-note{ margin-top: 14px; font-size: 11.5px; color: var(--text-dim); text-align:center; }
 
-  /* ---------- Group stage ---------- */
   .groups-title{
     font-family:'Oswald', sans-serif; font-size:12px; letter-spacing:.08em; color: var(--text-dim);
     text-transform:uppercase; margin: 4px 0 12px;
@@ -172,7 +167,6 @@
     .menu-grid{ grid-template-columns: 1fr; }
   }
 
-  /* ---------- Bracket (vertical, no horizontal scroll) ---------- */
   .bracket-wrap{
     background: var(--panel); border: 1px solid var(--lane-line); border-radius: 16px;
     padding: 20px 16px;
@@ -218,7 +212,46 @@
 
   .loading-msg{ text-align:center; color:var(--text-dim); padding:60px 0; font-size:13px; }
 
-  /* ---------- Sport sub-tabs (group stage / bracket) ---------- */
+  .feed-item{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    padding:14px 18px; background: var(--track-2); border-bottom: 1px solid var(--lane-line);
+  }
+  .feed-item:nth-child(even){ background: var(--track-1); }
+  .feed-item:last-child{ border-bottom:none; }
+  .feed-sport{
+    font-size:11px; color: var(--text-dim); font-family:'Oswald', sans-serif;
+    letter-spacing:.06em; text-transform:uppercase; margin-bottom:5px;
+  }
+  .feed-teams{ font-weight:600; font-size:14.5px; display:flex; align-items:center; flex-wrap:wrap; gap:4px; }
+  .feed-teams .lead{ font-weight:800; color: var(--gold); }
+  .feed-vs{ color: var(--text-dim); font-size:11.5px; margin:0 4px; font-weight:400; }
+  .feed-note{ font-size:11.5px; color: var(--text-dim); margin-top:3px; }
+  .feed-right{ text-align:left; display:flex; flex-direction:column; align-items:flex-end; gap:5px; flex-shrink:0; }
+  .feed-score{ font-family:'Oswald', sans-serif; font-weight:700; font-size:18px; font-variant-numeric: tabular-nums; }
+  .feed-time{ font-size:12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .feed-status-live{
+    display:flex; align-items:center; gap:6px; color:#fca5a5;
+    font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .feed-status-live .live-clock{ font-variant-numeric: tabular-nums; color:#fca5a5; }
+  .feed-status-paused{
+    font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.05em;
+    color: var(--gold); text-transform:uppercase; white-space:nowrap;
+  }
+  .feed-status-upcoming{
+    font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.08em;
+    color: var(--gold); text-transform:uppercase;
+  }
+  .feed-status-finished{
+    font-family:'Oswald', sans-serif; font-size:10.5px; letter-spacing:.08em;
+    color: var(--text-dim); text-transform:uppercase;
+  }
+  .feed-empty{ text-align:center; color:var(--text-dim); padding:40px 0; font-size:13px; }
+  .feed-scorers{ margin-top:8px; display:flex; flex-direction:column; gap:3px; }
+  .scorer-line{ font-size:11.5px; color: var(--text-dim); }
+  .scorer-min{ color: var(--text); font-family:'Oswald',sans-serif; font-weight:600; }
+
   .subtabs{ display:flex; gap:8px; margin-bottom:18px; }
   .subtab{
     flex:1; text-align:center; padding:12px 10px; border-radius:12px; border:1px solid var(--lane-line);
@@ -235,7 +268,6 @@
 <body>
   <div class="wrap">
 
-    <!-- ===================== HOME MENU ===================== -->
     <div id="view-home" class="view active">
       <div class="brand-bar">
         <img class="brand-logo" src="logo.png" alt="لوگو" onerror="this.style.display='none'">
@@ -245,7 +277,6 @@
       <div class="menu-grid" id="menuGrid"></div>
     </div>
 
-    <!-- ===================== LEADERBOARD VIEW ===================== -->
     <div id="view-leaderboard" class="view">
       <button class="back-btn" onclick="goHome()">→ بازگشت</button>
       <div class="section">
@@ -267,7 +298,20 @@
       </div>
     </div>
 
-    <!-- ===================== SPORT VIEW (group stage + bracket) ===================== -->
+    <div id="view-livefeed" class="view">
+      <button class="back-btn" onclick="goHome()">→ بازگشت</button>
+      <div class="section">
+        <div class="head">
+          <div class="head-titles">
+            <span class="eyebrow">هفدهمین المپیاد فرهنگی ورزشی دانشجویان پسر کشور</span>
+            <span class="title">نتایج زنده و بازی‌های پیش رو</span>
+          </div>
+          <div class="live-badge"><span class="dot"></span> زنده</div>
+        </div>
+        <div class="board" id="feedBoard"></div>
+      </div>
+    </div>
+
     <div id="view-sport" class="view">
       <button class="back-btn" onclick="goHome()">→ بازگشت</button>
       <div class="section">
@@ -296,6 +340,7 @@
 <script>
   const DATA_URL = 'data.json';
   let DATA = null;
+  let feedClockInterval = null;
 
   function fmtNow(){ return 'همین الان'; }
 
@@ -304,9 +349,15 @@
     document.getElementById(id).classList.add('active');
     window.scrollTo(0,0);
   }
-  function goHome(){ showView('view-home'); }
+  function goHome(){
+    if (feedClockInterval){ clearInterval(feedClockInterval); feedClockInterval = null; }
+    showView('view-home');
+  }
 
-  /* ---------------- Leaderboard ---------------- */
+  function escFeed(str){
+    return String(str ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
   function renderLeaderboard(){
     const laneContainer = document.getElementById('laneContainer');
     document.getElementById('updatedAt').textContent = fmtNow();
@@ -334,7 +385,87 @@
     });
   }
 
-  /* ---------------- Sport (group + bracket) ---------------- */
+  function computeElapsedSeconds(m){
+    let sec = m.clockBaseSeconds || 0;
+    if (m.clockRunning && m.clockStartedAt){
+      sec += (Date.now() - new Date(m.clockStartedAt).getTime()) / 1000;
+    }
+    return Math.max(0, Math.floor(sec));
+  }
+
+  function renderLiveFeed(){
+    const board = document.getElementById('feedBoard');
+    if (feedClockInterval){ clearInterval(feedClockInterval); feedClockInterval = null; }
+
+    const feed = DATA.liveFeed || [];
+    if (!feed.length){
+      board.innerHTML = '<div class="feed-empty">در حال حاضر بازی زنده یا پیش رویی ثبت نشده است.</div>';
+      return;
+    }
+
+    const order = { live: 0, upcoming: 1, finished: 2 };
+    const sorted = [...feed].sort((a,b) => (order[a.status] ?? 3) - (order[b.status] ?? 3));
+
+    board.innerHTML = sorted.map(m => {
+      const leadTeam1 = (m.score1 ?? 0) > (m.score2 ?? 0);
+      const leadTeam2 = (m.score2 ?? 0) > (m.score1 ?? 0);
+
+      const scorersSorted = (m.scorers || []).slice().sort((a,b) => (a.minute||0) - (b.minute||0));
+      const scorersHTML = scorersSorted.length ? `
+        <div class="feed-scorers">
+          ${scorersSorted.map(s => `<div class="scorer-line">⚽ ${escFeed(s.name)} <span class="scorer-min">${s.minute}'</span> — ${s.team === 1 ? escFeed(m.team1) : escFeed(m.team2)}</div>`).join('')}
+        </div>` : '';
+
+      let statusHTML, rightHTML;
+      if (m.status === 'live'){
+        const halfLabel = m.half === 2 ? 'نیمه دوم' : 'نیمه اول';
+        const dur = m.halfDurationMinutes || 45;
+        const elapsedMin = Math.floor(computeElapsedSeconds(m) / 60);
+        if (m.clockRunning){
+          statusHTML = `<span class="feed-status-live"><span class="dot"></span> ${halfLabel} — <span class="live-clock" data-base="${m.clockBaseSeconds||0}" data-started="${m.clockStartedAt||''}">${elapsedMin}</span>′ / ${dur}′</span>`;
+        } else {
+          statusHTML = `<span class="feed-status-paused">${halfLabel} — متوقف (${elapsedMin}′ / ${dur}′)</span>`;
+        }
+        rightHTML = `<span class="feed-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
+      } else if (m.status === 'finished'){
+        statusHTML = `<span class="feed-status-finished">پایان یافت</span>`;
+        rightHTML = `<span class="feed-score">${m.score1 ?? 0} - ${m.score2 ?? 0}</span>`;
+      } else {
+        statusHTML = `<span class="feed-status-upcoming">به‌زودی</span>`;
+        rightHTML = `<span class="feed-time">${escFeed(m.time)}</span>`;
+      }
+
+      return `
+        <div class="feed-item">
+          <div style="flex:1; min-width:0;">
+            <div class="feed-sport">${escFeed(m.sport)}</div>
+            <div class="feed-teams">
+              <span class="${leadTeam1 ? 'lead' : ''}">${escFeed(m.team1)}</span>
+              <span class="feed-vs">در برابر</span>
+              <span class="${leadTeam2 ? 'lead' : ''}">${escFeed(m.team2)}</span>
+            </div>
+            ${m.note ? `<div class="feed-note">${escFeed(m.note)}</div>` : ''}
+            ${scorersHTML}
+          </div>
+          <div class="feed-right">
+            ${statusHTML}
+            ${rightHTML}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    feedClockInterval = setInterval(() => {
+      document.querySelectorAll('.live-clock').forEach(el => {
+        const base = parseFloat(el.getAttribute('data-base')) || 0;
+        const started = el.getAttribute('data-started');
+        let sec = base;
+        if (started) sec += (Date.now() - new Date(started).getTime()) / 1000;
+        el.textContent = Math.floor(Math.max(0, sec) / 60);
+      });
+    }, 1000);
+  }
+
   function matchHTML(t1,s1,t2,s2, extra, cls){
     const t1win = s1 > s2 || (s1 === s2 && !!extra);
     const t2win = s2 > s1;
@@ -405,7 +536,6 @@
       </div>
     `;
 
-    // reset sub-tab selection to group stage whenever a sport is opened
     document.getElementById('subtab-groups').classList.add('active');
     document.getElementById('subtab-bracket').classList.remove('active');
   }
@@ -417,7 +547,6 @@
     document.getElementById('subtab-' + which).classList.add('active');
   }
 
-  /* ---------------- Home menu build ---------------- */
   function buildMenu(){
     const grid = document.getElementById('menuGrid');
     grid.innerHTML = '';
@@ -428,6 +557,12 @@
     lbCard.addEventListener('click', () => { renderLeaderboard(); showView('view-leaderboard'); });
     grid.appendChild(lbCard);
 
+    const feedCard = document.createElement('div');
+    feedCard.className = 'menu-card wide';
+    feedCard.innerHTML = `<span class="icon">📡</span><span class="label">نتایج زنده و بازی‌های پیش رو</span>`;
+    feedCard.addEventListener('click', () => { renderLiveFeed(); showView('view-livefeed'); });
+    grid.appendChild(feedCard);
+
     DATA.sports.forEach(sport => {
       const card = document.createElement('div');
       card.className = 'menu-card';
@@ -437,10 +572,9 @@
     });
   }
 
-  /* ---------------- Load data ---------------- */
   fetch(DATA_URL, { cache: 'no-store' })
     .then(r => r.json())
-    .then(json => { DATA = json; buildMenu(); })
+    .then(json => { DATA = json; if (!DATA.liveFeed) DATA.liveFeed = []; buildMenu(); })
     .catch(err => {
       document.getElementById('menuGrid').innerHTML =
         `<div class="loading-msg">خطا در بارگذاری data.json — مطمئن شوید این فایل کنار results.html روی هاست شماست.</div>`;
