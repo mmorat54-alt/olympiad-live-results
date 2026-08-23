@@ -213,11 +213,16 @@
   .loading-msg{ text-align:center; color:var(--text-dim); padding:60px 0; font-size:13px; }
 
   .feed-item{
-    display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
     padding:14px 18px; background: var(--track-2); border-bottom: 1px solid var(--lane-line);
   }
   .feed-item:nth-child(even){ background: var(--track-1); }
   .feed-item:last-child{ border-bottom:none; }
+  .feed-item-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .feed-stream{
+    margin-top:12px; border-radius:10px; overflow:hidden; background:#000;
+    position:relative; width:100%; aspect-ratio:16/9;
+  }
+  .feed-stream iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
   .feed-sport{
     font-size:11px; color: var(--text-dim); font-family:'Oswald', sans-serif;
     letter-spacing:.06em; text-transform:uppercase; margin-bottom:5px;
@@ -437,20 +442,23 @@
 
       return `
         <div class="feed-item">
-          <div style="flex:1; min-width:0;">
-            <div class="feed-sport">${escFeed(m.sport)}</div>
-            <div class="feed-teams">
-              <span class="${leadTeam1 ? 'lead' : ''}">${escFeed(m.team1)}</span>
-              <span class="feed-vs">در برابر</span>
-              <span class="${leadTeam2 ? 'lead' : ''}">${escFeed(m.team2)}</span>
+          <div class="feed-item-top">
+            <div style="flex:1; min-width:0;">
+              <div class="feed-sport">${escFeed(m.sport)}</div>
+              <div class="feed-teams">
+                <span class="${leadTeam1 ? 'lead' : ''}">${escFeed(m.team1)}</span>
+                <span class="feed-vs">در برابر</span>
+                <span class="${leadTeam2 ? 'lead' : ''}">${escFeed(m.team2)}</span>
+              </div>
+              ${m.note ? `<div class="feed-note">${escFeed(m.note)}</div>` : ''}
+              ${scorersHTML}
             </div>
-            ${m.note ? `<div class="feed-note">${escFeed(m.note)}</div>` : ''}
-            ${scorersHTML}
+            <div class="feed-right">
+              ${statusHTML}
+              ${rightHTML}
+            </div>
           </div>
-          <div class="feed-right">
-            ${statusHTML}
-            ${rightHTML}
-          </div>
+          ${m.streamEmbed ? `<div class="feed-stream">${m.streamEmbed}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -477,7 +485,12 @@
   }
 
   function groupTableHTML(groupName, rows){
-    const tRows = rows.map(r => `
+    const sortedRows = rows.slice().sort((a, b) => {
+      const ptsDiff = (Number(b.pts)||0) - (Number(a.pts)||0);
+      if (ptsDiff !== 0) return ptsDiff;
+      return (parseInt(b.diff)||0) - (parseInt(a.diff)||0);
+    });
+    const tRows = sortedRows.map(r => `
       <tr class="${r.q ? 'qualified' : ''}">
         <td>${r.name}</td><td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td>${r.diff}</td><td class="pts">${r.pts}</td>
       </tr>`).join('');
