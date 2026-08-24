@@ -1651,7 +1651,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "football",
@@ -1878,7 +1883,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "basketball",
@@ -2075,7 +2085,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "futsal",
@@ -2292,7 +2307,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "handball",
@@ -2499,7 +2519,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "badminton",
@@ -2696,7 +2721,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     },
     {
       "key": "table-tennis",
@@ -2913,7 +2943,12 @@
         null,
         null,
         null
-      ]
+      ],
+      "tableConfig": {
+        "hasDraw": true,
+        "diffLabel": "تفاضل گل",
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+      }
     }
   ],
   "liveFeed": [
@@ -4000,6 +4035,174 @@
       "note": "",
       "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/volleyball/184033/%D9%88%D8%A7%D9%84%DB%8C%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B4%D9%87%DB%8C%D8%AF-%D8%A8%D9%87%D8%B4%D8%AA%DB%8C"
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه شهید چمران اهواز",
+      "team2": "دانشگاه شهید چمران اهواز",
+      "status": "upcoming",
+      "time": "9:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه مازندران",
+      "team2": "دانشگاه تبریز",
+      "status": "upcoming",
+      "time": "9:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه اصفهان",
+      "team2": "دانشگاه تهران",
+      "status": "upcoming",
+      "time": "11:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه فردوسی مشهد",
+      "team2": "دانشگاه غیرانتفاعی زند شیراز",
+      "status": "upcoming",
+      "time": "11:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه خوارزمی",
+      "team2": "دانشگاه گیلان",
+      "status": "upcoming",
+      "time": "14:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه شهید بهشتی",
+      "team2": "دانشگاه کاشان",
+      "status": "upcoming",
+      "time": "14:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه صنعتی شاهرود",
+      "team2": "دانشگاه شهید باهنر کرمان",
+      "status": "upcoming",
+      "time": "16:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "فوتبال",
+      "sportKey": "football",
+      "team1": "دانشگاه علم و صنعت ایران",
+      "team2": "دانشگاه پیام نور تهران",
+      "status": "upcoming",
+      "time": "16:00",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
     }
   ]
 }
