@@ -3494,9 +3494,9 @@
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 45,
-      "clockRunning": true,
+      "clockRunning": false,
       "clockBaseSeconds": 0,
-      "clockStartedAt": "2026-08-24T13:00:06.541Z",
+      "clockStartedAt": null,
       "scorers": [
         {
           "team": 1,
@@ -3506,6 +3506,11 @@
         {
           "team": 2,
           "name": "علی رضا الله نیا ",
+          "minute": 0
+        },
+        {
+          "team": 1,
+          "name": "محمد رجبی ",
           "minute": 0
         }
       ],
