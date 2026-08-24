@@ -3360,12 +3360,18 @@
       "score1": 0,
       "score2": 0,
       "periodFormat": "half",
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 20,
-      "clockRunning": true,
+      "clockRunning": false,
       "clockBaseSeconds": 0,
-      "clockStartedAt": "2026-08-24T07:00:15.279Z",
-      "scorers": [],
+      "clockStartedAt": null,
+      "scorers": [
+        {
+          "team": 1,
+          "name": "علی بهرام پور ",
+          "minute": 45
+        }
+      ],
       "note": "",
       "appliedToTable": false,
       "streamEmbed": ""
