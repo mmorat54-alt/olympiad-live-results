@@ -1559,12 +1559,12 @@
         "گروه D": [
           {
             "name": "دانشگاه غیرانتفاعی طبری بابل",
-            "p": 0,
-            "w": 0,
+            "p": 1,
+            "w": 1,
             "d": 0,
             "l": 0,
-            "diff": "0",
-            "pts": 0,
+            "diff": "+1",
+            "pts": 3,
             "q": false
           },
           {
@@ -1579,11 +1579,11 @@
           },
           {
             "name": "دانشگاه علم و صنعت ایران",
-            "p": 0,
+            "p": 1,
             "w": 0,
             "d": 0,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-1",
             "pts": 0,
             "q": false
           },
@@ -2094,12 +2094,12 @@
           },
           {
             "name": "دانشگاه جامع علمی کاربردی خوزستان",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "0",
-            "pts": 3,
+            "diff": "+2",
+            "pts": 6,
             "q": false
           },
           {
@@ -2114,11 +2114,11 @@
           },
           {
             "name": "دانشگاه علامه طباطبایی",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 1,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-2",
             "pts": 1,
             "q": false
           }
@@ -2301,21 +2301,21 @@
         "گروه A": [
           {
             "name": "دانشگاه اصفهان",
-            "p": 0,
-            "w": 0,
+            "p": 1,
+            "w": 1,
             "d": 0,
             "l": 0,
-            "diff": "0",
-            "pts": 0,
+            "diff": "+21",
+            "pts": 3,
             "q": false
           },
           {
             "name": "دانشگاه ملی مهارت همدان",
-            "p": 0,
+            "p": 1,
             "w": 0,
             "d": 0,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-21",
             "pts": 0,
             "q": false
           },
@@ -2333,12 +2333,12 @@
         "گروه B": [
           {
             "name": "دانشگاه فردوسی مشهد",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
@@ -2353,12 +2353,12 @@
           },
           {
             "name": "دانشگاه شهید بهشتی",
-            "p": 0,
+            "p": 1,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "0",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
@@ -3507,11 +3507,11 @@
       "sportKey": "futsal",
       "team1": "دانشگاه جامع علمی کاربردی خوزستان",
       "team2": "دانشگاه علامه طباطبایی",
-      "status": "live",
+      "status": "finished",
       "time": "12:00",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 3,
+      "score2": 1,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
@@ -3520,7 +3520,7 @@
       "clockStartedAt": "2026-08-24T08:30:15.202Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/futsal/184062/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B9%D9%84%D9%85%DB%8C-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C-%D8%AE%D9%88%D8%B2%D8%B3%D8%AA%D8%A7%D9%86-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B9%D9%84%D8%A7%D9%85%D9%87-%D8%B7%D8%A8%D8%A7%D8%B7%D8%A8%D8%A7%DB%8C%DB%8C"
     },
     {
@@ -3591,11 +3591,11 @@
       "sportKey": "handball",
       "team1": "دانشگاه ملی مهارت همدان",
       "team2": "دانشگاه اصفهان",
-      "status": "live",
+      "status": "finished",
       "time": "9:30 ",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 11,
+      "score2": 32,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -3604,7 +3604,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
@@ -3612,11 +3612,11 @@
       "sportKey": "handball",
       "team1": "دانشگاه شهید بهشتی",
       "team2": "دانشگاه فردوسی مشهد",
-      "status": "live",
+      "status": "finished",
       "time": "10:30",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 20,
+      "score2": 20,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
@@ -3625,7 +3625,7 @@
       "clockStartedAt": "2026-08-24T07:00:15.279Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
@@ -3822,11 +3822,11 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه غیرانتفاعی طبری بابل",
       "team2": "دانشگاه علم و صنعت ایران",
-      "status": "live",
+      "status": "finished",
       "time": "11:30",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 2,
+      "score2": 1,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
@@ -3835,7 +3835,7 @@
       "clockStartedAt": "2026-08-24T08:00:16.098Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/volleyball/184061/%D9%88%D8%A7%D9%84%DB%8C%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B9%D9%84%D9%85-%D9%88-%D8%B5%D9%86%D8%B9%D8%AA-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%BA%DB%8C%D8%B1-%D8%A7%D9%86%D8%AA%D9%81%D8%A7%D8%B9%DB%8C-%D8%B7%D8%A8%D8%B1%DB%8C-%D8%A8%D8%A7%D8%A8%D9%84"
     },
     {
