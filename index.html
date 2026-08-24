@@ -364,7 +364,7 @@
       <div class="section">
         <div class="head">
           <div class="head-titles">
-            <span class="eyebrow">مرحله گروهی و مرحله حذفی</span>
+            <span class="eyebrow" id="sportEyebrow">مرحله گروهی و مرحله حذفی</span>
             <span class="title" id="sportTitle"></span>
           </div>
         </div>
@@ -686,6 +686,17 @@
 
   function renderSport(sport){
     document.getElementById('sportTitle').textContent = sport.label;
+    const subtabsEl = document.getElementById('sportSubtabs');
+    const eyebrowEl = document.getElementById('sportEyebrow');
+
+    if (sport.type === 'individual'){
+      if (subtabsEl) subtabsEl.style.display = 'none';
+      if (eyebrowEl) eyebrowEl.textContent = 'دسته‌بندی‌ها و جدول حذفی';
+      renderIndividualSportPublic(sport);
+      return;
+    }
+    if (subtabsEl) subtabsEl.style.display = '';
+    if (eyebrowEl) eyebrowEl.textContent = 'مرحله گروهی و مرحله حذفی';
 
     const qfHTML = sport.qf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
     const sfHTML = sport.sf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
@@ -733,6 +744,48 @@
     document.getElementById('subtab-bracket').classList.remove('active');
   }
 
+  function renderIndividualSportPublic(sport){
+    const categories = sport.categories || [];
+    if (!categories.length){
+      document.getElementById('sportPanelContent').innerHTML =
+        `<div class="feed-empty">هنوز دسته‌ای برای این رشته ثبت نشده است.</div>`;
+      return;
+    }
+    document.getElementById('sportPanelContent').innerHTML = categories.map(cat => {
+      const qfHTML = (cat.qf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
+      const sfHTML = (cat.sf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
+      const f = cat.final || ['', '', 0, 0, ''];
+      const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '');
+      const championName = (f[2] >= f[3]) ? f[0] : f[1];
+      return `
+        <div class="bracket-wrap" style="margin-bottom:16px;">
+          <div class="stage-title" style="margin-bottom:16px;">${escFeed(cat.name)}</div>
+          <div class="bracket-stage" data-stage="qf">
+            <div class="stage-title">یک‌چهارم نهایی</div>
+            <div class="stage-matches">${qfHTML}</div>
+          </div>
+          <div class="bracket-stage" data-stage="sf">
+            <div class="stage-title">نیمه‌نهایی</div>
+            <div class="stage-matches">${sfHTML}</div>
+          </div>
+          <div class="bracket-stage" data-stage="final">
+            <div class="stage-title">فینال</div>
+            <div class="stage-matches">${finalHTML}</div>
+          </div>
+          <div class="bracket-stage" data-stage="champion">
+            <div class="champion-card">
+              <span class="cup">🏆</span>
+              <div>
+                <div class="c-name">${championName}</div>
+                <div class="c-sub">قهرمان دسته ${escFeed(cat.name)}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
   function showSportSub(which){
     document.querySelectorAll('.sub-view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.subtab').forEach(v => v.classList.remove('active'));
@@ -759,7 +812,8 @@
     DATA.sports.forEach(sport => {
       const card = document.createElement('div');
       card.className = 'menu-card';
-      card.innerHTML = `<span class="icon">🥇</span><span class="label">${sport.label}</span><span class="sub">جدول گروهی و نمودار حذفی</span>`;
+      const sub = sport.type === 'individual' ? 'دسته‌بندی‌ها و نمودار حذفی' : 'جدول گروهی و نمودار حذفی';
+      card.innerHTML = `<span class="icon">🥇</span><span class="label">${sport.label}</span><span class="sub">${sub}</span>`;
       card.addEventListener('click', () => { renderSport(sport); showView('view-sport'); });
       grid.appendChild(card);
     });
