@@ -3384,14 +3384,14 @@
       "status": "live",
       "time": "14:30 ",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 2,
+      "score1": 1,
+      "score2": 3,
       "periodFormat": "half",
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 20,
       "clockRunning": true,
       "clockBaseSeconds": 0,
-      "clockStartedAt": "2026-08-24T11:00:17.660Z",
+      "clockStartedAt": "2026-08-24T12:20:32.103Z",
       "scorers": [
         {
           "team": 2,
@@ -3402,6 +3402,16 @@
           "team": 2,
           "name": "محمد حسن زراعت ",
           "minute": 9
+        },
+        {
+          "team": 2,
+          "name": "سید علی اکبر صابری اناری ",
+          "minute": 45
+        },
+        {
+          "team": 1,
+          "name": "محمد حسین رحیمی ",
+          "minute": 49
         }
       ],
       "note": "",
