@@ -3298,9 +3298,9 @@
           "minute": 1
         },
         {
-          "team": 1,
-          "name": "",
-          "minute": 0
+          "team": 2,
+          "name": "محمدرضا حسن وند ",
+          "minute": 1
         }
       ],
       "note": "",
@@ -3315,10 +3315,10 @@
       "status": "live",
       "time": "",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 2,
+      "score2": 1,
       "periodFormat": "half",
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 20,
       "clockRunning": false,
       "clockBaseSeconds": 0,
