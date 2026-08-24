@@ -1993,12 +1993,12 @@
         "گروه D": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 1,
-            "w": 0,
+            "p": 2,
+            "w": 1,
             "d": 1,
             "l": 1,
-            "diff": "0",
-            "pts": 1,
+            "diff": "+22",
+            "pts": 4,
             "q": false
           },
           {
@@ -2013,11 +2013,11 @@
           },
           {
             "name": "دانشگاه شیراز",
-            "p": 0,
+            "p": 1,
             "w": 0,
             "d": 0,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-22",
             "pts": 0,
             "q": false
           }
@@ -3817,11 +3817,11 @@
       "sportKey": "basketball",
       "team1": "دانشگاه صنعتی شاهرود",
       "team2": "دانشگاه شیراز",
-      "status": "live",
+      "status": "finished",
       "time": "18:30 ",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 63,
+      "score2": 41,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
@@ -3830,7 +3830,7 @@
       "clockStartedAt": "2026-08-24T16:18:25.992Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/basketball/184037/%D8%A8%D8%B3%DA%A9%D8%AA%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2"
     },
     {
