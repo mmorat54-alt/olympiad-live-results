@@ -3417,18 +3417,23 @@
       "time": "14:30",
       "date": "2026-08-24",
       "score1": 1,
-      "score2": 0,
+      "score2": 1,
       "periodFormat": "half",
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 45,
       "clockRunning": true,
       "clockBaseSeconds": 0,
-      "clockStartedAt": "2026-08-24T10:47:31.116Z",
+      "clockStartedAt": "2026-08-24T11:55:49.537Z",
       "scorers": [
         {
           "team": 1,
           "name": "مهدی خوش کام ",
           "minute": 18
+        },
+        {
+          "team": 2,
+          "name": "محمد جواد شهرابی",
+          "minute": 51
         }
       ],
       "note": "",
