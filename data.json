@@ -1702,11 +1702,11 @@
         "گروه B": [
           {
             "name": "دانشگاه تهران",
-            "p": 1,
+            "p": 2,
             "w": 1,
             "d": 0,
-            "l": 0,
-            "diff": "+4",
+            "l": 1,
+            "diff": "+2",
             "pts": 3,
             "q": false
           },
@@ -1722,12 +1722,12 @@
           },
           {
             "name": "دانشگاه فردوسی مشهد",
-            "p": 1,
-            "w": 0,
+            "p": 2,
+            "w": 1,
             "d": 0,
             "l": 1,
-            "diff": "-1",
-            "pts": 0,
+            "diff": "+1",
+            "pts": 3,
             "q": false
           },
           {
@@ -3312,10 +3312,10 @@
       "sportKey": "football",
       "team1": "دانشگاه فردوسی مشهد",
       "team2": "دانشگاه تهران",
-      "status": "live",
+      "status": "finished",
       "time": "",
       "date": "2026-08-24",
-      "score1": 2,
+      "score1": 3,
       "score2": 1,
       "periodFormat": "half",
       "half": 2,
@@ -3325,7 +3325,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
