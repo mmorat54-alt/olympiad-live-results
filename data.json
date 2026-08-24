@@ -3276,7 +3276,7 @@
       "score1": 0,
       "score2": 0,
       "periodFormat": "half",
-      "half": 1,
+      "half": 2,
       "halfDurationMinutes": 20,
       "clockRunning": false,
       "clockBaseSeconds": 0,
@@ -3291,6 +3291,16 @@
           "team": 2,
           "name": "امیرعلی یحیی پور ",
           "minute": 1
+        },
+        {
+          "team": 1,
+          "name": "امیرحسین نوروزی ",
+          "minute": 1
+        },
+        {
+          "team": 1,
+          "name": "",
+          "minute": 0
         }
       ],
       "note": "",
@@ -3785,7 +3795,7 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه غیرانتفاعی توس مشهد",
       "team2": "دانشگاه جامع علمی کاربردی خراسان رضوی",
-      "status": "upcoming",
+      "status": "live",
       "time": "10:45 ",
       "date": "2026-08-24",
       "score1": 0,
@@ -3793,9 +3803,9 @@
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
-      "clockRunning": false,
+      "clockRunning": true,
       "clockBaseSeconds": 0,
-      "clockStartedAt": null,
+      "clockStartedAt": "2026-08-24T07:15:00.537Z",
       "scorers": [],
       "note": "",
       "appliedToTable": false,
