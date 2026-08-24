@@ -3273,8 +3273,8 @@
       "status": "finished",
       "time": "",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 1,
+      "score2": 3,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -3285,22 +3285,22 @@
         {
           "team": 2,
           "name": "محمدرضا حسن وند ",
-          "minute": 1
+          "minute": 9
         },
         {
           "team": 2,
           "name": "امیرعلی یحیی پور ",
-          "minute": 1
+          "minute": 37
         },
         {
           "team": 1,
           "name": "امیرحسین نوروزی ",
-          "minute": 1
+          "minute": 63
         },
         {
           "team": 2,
           "name": "محمدرضا حسن وند ",
-          "minute": 1
+          "minute": 61
         }
       ],
       "note": "",
