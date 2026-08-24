@@ -1951,12 +1951,12 @@
         "گروه C": [
           {
             "name": "دانشگاه شهید بهشتی",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "+38",
-            "pts": 3,
+            "diff": "+115",
+            "pts": 6,
             "q": false
           },
           {
@@ -1971,11 +1971,11 @@
           },
           {
             "name": "دانشگاه زنجان",
-            "p": 1,
+            "p": 2,
             "w": 1,
             "d": 0,
-            "l": 0,
-            "diff": "+24",
+            "l": 1,
+            "diff": "-53",
             "pts": 3,
             "q": false
           },
@@ -3759,11 +3759,11 @@
       "sportKey": "basketball",
       "team1": "دانشگاه زنجان",
       "team2": "دانشگاه شهید بهشتی",
-      "status": "live",
+      "status": "finished",
       "time": "14:30",
       "date": "2026-08-24",
-      "score1": 0,
-      "score2": 0,
+      "score1": 25,
+      "score2": 102,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
@@ -3772,7 +3772,7 @@
       "clockStartedAt": "2026-08-24T11:00:17.660Z",
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
