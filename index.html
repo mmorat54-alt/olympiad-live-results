@@ -664,21 +664,22 @@
     </div>`;
   }
 
-  function groupTableHTML(groupName, rows){
+  function groupTableHTML(groupName, rows, tableConfig){
+    const cfg = tableConfig || { hasDraw: true, diffLabel: 'تفاضل' };
     const sortedRows = rows.slice().sort((a, b) => {
       const ptsDiff = (Number(b.pts)||0) - (Number(a.pts)||0);
       if (ptsDiff !== 0) return ptsDiff;
-      return (parseInt(b.diff)||0) - (parseInt(a.diff)||0);
+      return (parseFloat(b.diff)||0) - (parseFloat(a.diff)||0);
     });
     const tRows = sortedRows.map(r => `
       <tr class="${r.q ? 'qualified' : ''}">
-        <td>${r.name}</td><td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td>${r.diff}</td><td class="pts">${r.pts}</td>
+        <td>${escFeed(r.name)}</td><td>${r.p}</td><td>${r.w}</td>${cfg.hasDraw ? `<td>${r.d}</td>` : ''}<td>${r.l}</td><td>${escFeed(String(r.diff))}</td><td class="pts">${r.pts}</td>
       </tr>`).join('');
     return `
       <div class="group-card">
-        <div class="group-card-head">${groupName}</div>
+        <div class="group-card-head">${escFeed(groupName)}</div>
         <table class="group-table">
-          <thead><tr><th>تیم</th><th>ب</th><th>برد</th><th>تساوی</th><th>باخت</th><th>تفاضل</th><th>امتیاز</th></tr></thead>
+          <thead><tr><th>تیم</th><th>ب</th><th>برد</th>${cfg.hasDraw ? '<th>تساوی</th>' : ''}<th>باخت</th><th>${escFeed(cfg.diffLabel)}</th><th>امتیاز</th></tr></thead>
           <tbody>${tRows}</tbody>
         </table>
       </div>`;
@@ -704,8 +705,9 @@
     const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '');
     const championName = (f[2] >= f[3]) ? f[0] : f[1];
 
+    const tableConfig = sport.tableConfig || { hasDraw: true, diffLabel: 'تفاضل گل' };
     const groupsHTML = Object.entries(sport.groups)
-      .map(([name, rows]) => groupTableHTML(name, rows)).join('');
+      .map(([name, rows]) => groupTableHTML(name, rows, tableConfig)).join('');
 
     document.getElementById('sportPanelContent').innerHTML = `
       <div class="sub-view active" id="sub-groups">
