@@ -1754,12 +1754,12 @@
           },
           {
             "name": "دانشگاه شهید باهنر کرمان",
-            "p": 1,
+            "p": 2,
             "w": 0,
-            "d": 0,
+            "d": 1,
             "l": 1,
             "diff": "-4",
-            "pts": 0,
+            "pts": 1,
             "q": false
           },
           {
@@ -1774,12 +1774,12 @@
           },
           {
             "name": "دانشگاه علم و صنعت ایران",
-            "p": 1,
+            "p": 2,
             "w": 1,
-            "d": 0,
+            "d": 1,
             "l": 0,
             "diff": "+1",
-            "pts": 3,
+            "pts": 4,
             "q": false
           }
         ],
@@ -3381,10 +3381,10 @@
       "sportKey": "football",
       "team1": "دانشگاه علم و صنعت ایران",
       "team2": "دانشگاه شهید باهنر کرمان",
-      "status": "live",
+      "status": "finished",
       "time": "14:30 ",
       "date": "2026-08-24",
-      "score1": 1,
+      "score1": 3,
       "score2": 3,
       "periodFormat": "half",
       "half": 2,
@@ -3412,10 +3412,20 @@
           "team": 1,
           "name": "محمد حسین رحیمی ",
           "minute": 49
+        },
+        {
+          "team": 1,
+          "name": "آرمین پورحسین",
+          "minute": 55
+        },
+        {
+          "team": 1,
+          "name": "آرمین پورحسین",
+          "minute": 70
         }
       ],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
