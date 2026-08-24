@@ -267,9 +267,18 @@
     -webkit-tap-highlight-color:transparent;
   }
   .feed-day-btn.active{ background:var(--gold); border-color:var(--gold); color:#1a1305; }
-  .feed-date-input{
+  .feed-date-wrap{
+    position:relative; display:flex; align-items:center; gap:6px;
     padding:7px 12px; border-radius:999px; border:1px solid var(--lane-line); background:var(--panel-2);
-    color:var(--text); font-family:'Vazirmatn',sans-serif; font-size:12.5px; cursor:pointer; color-scheme: dark;
+    color:var(--text-dim); font-family:'Vazirmatn',sans-serif; font-size:12.5px; cursor:pointer;
+  }
+  .feed-date-wrap span{ pointer-events:none; white-space:nowrap; }
+  .feed-date-input{
+    position:absolute; inset:0; width:100%; height:100%; opacity:0; border:0; cursor:pointer; color-scheme: dark;
+  }
+  .feed-sport-select{
+    padding:7px 30px 7px 12px; border-radius:999px; border:1px solid var(--lane-line); background:var(--panel-2);
+    color:var(--text); font-family:'Vazirmatn',sans-serif; font-size:12.5px; cursor:pointer;
   }
   .feed-day-label{ font-size:12px; color:var(--text-dim); margin-bottom:14px; }
   .feed-item.finished{
@@ -352,7 +361,13 @@
         </div>
         <div class="feed-day-bar">
           <button class="feed-day-btn active" id="dayTodayBtn" onclick="selectFeedDay('today')">امروز</button>
-          <input type="date" class="feed-date-input" id="feedDatePicker" onchange="selectFeedDay(this.value)">
+          <div class="feed-date-wrap">
+            <span>📅 تقویم</span>
+            <input type="date" class="feed-date-input" id="feedDatePicker" onchange="selectFeedDay(this.value)">
+          </div>
+          <select class="feed-sport-select" id="feedSportFilter" onchange="selectFeedSport(this.value)">
+            <option value="all">همه رشته‌ها</option>
+          </select>
         </div>
         <div class="feed-day-label" id="feedDayLabel"></div>
         <div class="board" id="feedBoard"></div>
@@ -389,6 +404,7 @@
   let DATA = null;
   let feedClockInterval = null;
   let selectedFeedDate = null;
+  let selectedFeedSport = 'all';
 
   function pad2(n){ return String(n).padStart(2, '0'); }
 
@@ -442,6 +458,19 @@
     if (todayBtn) todayBtn.classList.toggle('active', isToday);
     if (picker) picker.value = isToday ? '' : selectedFeedDate;
     renderLiveFeed();
+  }
+
+  function selectFeedSport(val){
+    selectedFeedSport = val || 'all';
+    renderLiveFeed();
+  }
+
+  function populateFeedSportFilter(){
+    const sel = document.getElementById('feedSportFilter');
+    if (!sel || !DATA || !DATA.sports) return;
+    sel.innerHTML = '<option value="all">همه رشته‌ها</option>' +
+      DATA.sports.map(s => `<option value="${s.key}">${escFeed(s.label)}</option>`).join('');
+    sel.value = selectedFeedSport;
   }
 
   function fmtNow(){ return 'همین الان'; }
@@ -534,9 +563,13 @@
     const isToday = selectedFeedDate === todayISO();
     if (label) label.textContent = (isToday ? 'امروز — ' : '') + formatJalaliLabel(selectedFeedDate);
 
-    const feed = (DATA.liveFeed || []).filter(m => (m.date || todayISO()) === selectedFeedDate);
+    const feed = (DATA.liveFeed || []).filter(m =>
+      (m.date || todayISO()) === selectedFeedDate &&
+      (selectedFeedSport === 'all' || m.sportKey === selectedFeedSport)
+    );
     if (!feed.length){
-      board.innerHTML = `<div class="feed-empty">${isToday ? 'در حال حاضر بازی زنده یا پیش‌رویی برای امروز ثبت نشده است.' : 'برای این تاریخ بازی‌ای ثبت نشده است.'}</div>`;
+      const dateMsg = isToday ? 'برای امروز' : 'برای این تاریخ';
+      board.innerHTML = `<div class="feed-empty">${selectedFeedSport === 'all' ? `${dateMsg} بازی زنده یا پیش‌رویی ثبت نشده است.` : `${dateMsg} در این رشته بازی‌ای ثبت نشده است.`}</div>`;
       return;
     }
 
@@ -808,7 +841,13 @@
     const feedCard = document.createElement('div');
     feedCard.className = 'menu-card wide';
     feedCard.innerHTML = `<span class="icon">📡</span><span class="label">نتایج زنده و بازی‌های پیش رو</span>`;
-    feedCard.addEventListener('click', () => { selectFeedDay('today'); showView('view-livefeed'); });
+    feedCard.addEventListener('click', () => {
+      selectedFeedSport = 'all';
+      const sportSel = document.getElementById('feedSportFilter');
+      if (sportSel) sportSel.value = 'all';
+      selectFeedDay('today');
+      showView('view-livefeed');
+    });
     grid.appendChild(feedCard);
 
     DATA.sports.forEach(sport => {
@@ -823,7 +862,7 @@
 
   fetch(DATA_URL, { cache: 'no-store' })
     .then(r => r.json())
-    .then(json => { DATA = json; if (!DATA.liveFeed) DATA.liveFeed = []; buildMenu(); })
+    .then(json => { DATA = json; if (!DATA.liveFeed) DATA.liveFeed = []; buildMenu(); populateFeedSportFilter(); })
     .catch(err => {
       document.getElementById('menuGrid').innerHTML =
         `<div class="loading-msg">خطا در بارگذاری data.json — مطمئن شوید این فایل کنار results.html روی هاست شماست.</div>`;
