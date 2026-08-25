@@ -2352,7 +2352,7 @@
             "q": false
           },
           {
-            "name": "دانشگاه ایلام",
+            "name": "دانشگاه فرهنگیان اصفهان",
             "p": 0,
             "w": 0,
             "d": 0,
@@ -2370,16 +2370,6 @@
             "diff": "0",
             "pts": 1,
             "q": false
-          },
-          {
-            "name": "دانشگاه بوعلی سینا همدان",
-            "p": 0,
-            "w": 0,
-            "d": 0,
-            "l": 0,
-            "diff": "0",
-            "pts": 0,
-            "q": false
           }
         ],
         "گروه C": [
@@ -2395,16 +2385,6 @@
           },
           {
             "name": "دانشگاه کاشان",
-            "p": 0,
-            "w": 0,
-            "d": 0,
-            "l": 0,
-            "diff": "0",
-            "pts": 0,
-            "q": false
-          },
-          {
-            "name": "دانشگاه فرهنگیان اصفهان",
             "p": 0,
             "w": 0,
             "d": 0,
@@ -4676,6 +4656,27 @@
       "note": "",
       "appliedToTable": false,
       "streamEmbed": "https://www.anten.ir/basketball/184278 "
+    },
+    {
+      "sport": "هندبال",
+      "sportKey": "handball",
+      "team1": "",
+      "team2": "",
+      "status": "upcoming",
+      "time": "",
+      "date": "2026-08-25",
+      "score1": 0,
+      "score2": 0,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": false,
+      "streamEmbed": ""
     }
   ]
 }
