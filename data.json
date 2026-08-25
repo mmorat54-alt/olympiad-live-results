@@ -1517,21 +1517,21 @@
         "گروه C": [
           {
             "name": "دانشگاه غیرانتفاعی طلوع مهر قم",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "+2",
-            "pts": 3,
+            "diff": "+3",
+            "pts": 6,
             "q": false
           },
           {
             "name": "دانشگاه جامع علمی کاربردی خراسان رضوی",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-3",
+            "l": 2,
+            "diff": "-4",
             "pts": 0,
             "q": false
           },
@@ -4409,11 +4409,11 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه جامع علمی کاربردی خراسان رضوی",
       "team2": "دانشگاه غیرانتفاعی طلوع مهر قم",
-      "status": "live",
+      "status": "finished",
       "time": "9:00",
       "date": "2026-08-25",
-      "score1": 0,
-      "score2": 0,
+      "score1": 1,
+      "score2": 2,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -4422,7 +4422,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
