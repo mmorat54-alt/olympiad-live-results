@@ -1707,42 +1707,42 @@
         "گروه B": [
           {
             "name": "دانشگاه تهران",
-            "p": 2,
-            "w": 1,
+            "p": 3,
+            "w": 2,
             "d": 0,
             "l": 1,
-            "diff": "+2",
-            "pts": 3,
+            "diff": "+5",
+            "pts": 6,
             "q": false
           },
           {
             "name": "دانشگاه اصفهان",
-            "p": 2,
+            "p": 3,
             "w": 1,
             "d": 0,
-            "l": 1,
-            "diff": "0",
+            "l": 2,
+            "diff": "-3",
             "pts": 3,
             "q": false
           },
           {
             "name": "دانشگاه فردوسی مشهد",
-            "p": 2,
+            "p": 3,
             "w": 1,
             "d": 0,
-            "l": 1,
-            "diff": "+1",
+            "l": 2,
+            "diff": "-1",
             "pts": 3,
             "q": false
           },
           {
             "name": "دانشگاه غیرانتفاعی زند شیراز",
-            "p": 2,
-            "w": 1,
+            "p": 3,
+            "w": 2,
             "d": 0,
             "l": 1,
-            "diff": "-3",
-            "pts": 3,
+            "diff": "-1",
+            "pts": 6,
             "q": false
           }
         ],
@@ -4053,7 +4053,7 @@
       "sportKey": "football",
       "team1": "دانشگاه اصفهان",
       "team2": "دانشگاه تهران",
-      "status": "live",
+      "status": "finished",
       "time": "11:00",
       "date": "2026-08-25",
       "score1": 0,
@@ -4066,7 +4066,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
@@ -4074,7 +4074,7 @@
       "sportKey": "football",
       "team1": "دانشگاه فردوسی مشهد",
       "team2": "دانشگاه غیرانتفاعی زند شیراز",
-      "status": "live",
+      "status": "finished",
       "time": "11:00",
       "date": "2026-08-25",
       "score1": 1,
@@ -4087,7 +4087,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
@@ -4119,8 +4119,8 @@
       "status": "live",
       "time": "14:00",
       "date": "2026-08-25",
-      "score1": 0,
-      "score2": 0,
+      "score1": 1,
+      "score2": 1,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
