@@ -2109,11 +2109,11 @@
           },
           {
             "name": "دانشگاه جامع علمی کاربردی خوزستان",
-            "p": 2,
+            "p": 3,
             "w": 2,
             "d": 0,
-            "l": 0,
-            "diff": "+2",
+            "l": 1,
+            "diff": "+10",
             "pts": 6,
             "q": false
           },
@@ -2142,10 +2142,10 @@
           {
             "name": "دانشگاه صنعتی شاهرود",
             "p": 2,
-            "w": 1,
+            "w": 0,
             "d": 0,
             "l": 2,
-            "diff": "-2",
+            "diff": "-4",
             "pts": 3,
             "q": false
           },
@@ -2175,8 +2175,8 @@
             "w": 1,
             "d": 1,
             "l": 1,
-            "diff": "-1",
-            "pts": 4,
+            "diff": "+1",
+            "pts": 3,
             "q": false
           }
         ],
@@ -2202,16 +2202,6 @@
             "q": false
           },
           {
-            "name": "دانشگاه تهران",
-            "p": 0,
-            "w": 0,
-            "d": 0,
-            "l": 0,
-            "diff": "0",
-            "pts": 0,
-            "q": false
-          },
-          {
             "name": "دانشگاه فرهنگیان استان مازندران",
             "p": 1,
             "w": 0,
@@ -2227,20 +2217,20 @@
             "name": "دانشگاه شهید بهشتی",
             "p": 2,
             "w": 0,
-            "d": 0,
-            "l": 2,
-            "diff": "-12",
+            "d": 1,
+            "l": 1,
+            "diff": "-4",
             "pts": 0,
             "q": false
           },
           {
             "name": "دانشگاه علمی کاربردی آذربایجان شرقی",
             "p": 1,
-            "w": 1,
-            "d": 0,
+            "w": 0,
+            "d": 1,
             "l": 0,
             "diff": "+8",
-            "pts": 3,
+            "pts": 0,
             "q": false
           },
           {
@@ -2249,7 +2239,7 @@
             "w": 1,
             "d": 0,
             "l": 0,
-            "diff": "+4",
+            "diff": "0",
             "pts": 3,
             "q": false
           }
@@ -4440,7 +4430,7 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه غیرانتفاعی توس مشهد",
       "team2": "دانشگاه صنعت نفت آبادان",
-      "status": "upcoming",
+      "status": "live",
       "time": "10:15",
       "date": "2026-08-25",
       "score1": 0,
@@ -4448,9 +4438,9 @@
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
-      "clockRunning": false,
+      "clockRunning": true,
       "clockBaseSeconds": 0,
-      "clockStartedAt": null,
+      "clockStartedAt": "2026-08-25T06:45:19.610Z",
       "scorers": [],
       "note": "",
       "appliedToTable": false,
