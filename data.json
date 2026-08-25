@@ -2013,21 +2013,21 @@
           },
           {
             "name": "دانشگاه بوعلی سینا همدان",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 1,
             "l": 0,
-            "diff": "0",
-            "pts": 3,
+            "diff": "+10",
+            "pts": 6,
             "q": false
           },
           {
             "name": "دانشگاه شیراز",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-22",
+            "l": 2,
+            "diff": "-32",
             "pts": 0,
             "q": false
           }
@@ -4589,11 +4589,11 @@
       "sportKey": "basketball",
       "team1": "دانشگاه بوعلی سینا همدان",
       "team2": "دانشگاه شیراز",
-      "status": "live",
+      "status": "finished",
       "time": "18:30",
       "date": "2026-08-25",
-      "score1": 0,
-      "score2": 0,
+      "score1": 69,
+      "score2": 59,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -4602,7 +4602,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": "https://www.anten.ir/basketball/184278 "
     },
     {
