@@ -590,7 +590,7 @@
       if (m.status === 'live'){
         const pf = m.periodFormat || 'half';
         if (pf === 'none'){
-          statusHTML = `<span class="feed-status-live"><span class="dot"></span> در حال برگزاری</span>`;
+          statusHTML = `<span class="feed-status-live"><span class="dot"></span> در جریان</span>`;
         } else {
           const totalPeriods = pf === 'quarter' ? 4 : 2;
           const periodWord = pf === 'quarter' ? 'کوارتر' : 'نیمه';
