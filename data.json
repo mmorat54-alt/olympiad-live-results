@@ -1495,21 +1495,21 @@
           },
           {
             "name": "دانشگاه غیرانتفاعی زند شیراز",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "+2",
-            "pts": 3,
+            "diff": "+4",
+            "pts": 6,
             "q": false
           },
           {
             "name": "دانشگاه لرستان",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-2",
+            "l": 2,
+            "diff": "-4",
             "pts": 0,
             "q": false
           }
@@ -4484,11 +4484,11 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه لرستان",
       "team2": "دانشگاه غیرانتفاعی زند شیراز",
-      "status": "live",
+      "status": "finished",
       "time": "15:30",
       "date": "2026-08-25",
       "score1": 0,
-      "score2": 0,
+      "score2": 2,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -4497,7 +4497,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
