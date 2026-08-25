@@ -1537,22 +1537,22 @@
           },
           {
             "name": "دانشگاه صنعت نفت آبادان",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-2",
+            "l": 2,
+            "diff": "-4",
             "pts": 0,
             "q": false
           },
           {
             "name": "دانشگاه غیرانتفاعی توس مشهد",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "+3",
-            "pts": 3,
+            "diff": "+5",
+            "pts": 6,
             "q": false
           }
         ],
@@ -4410,10 +4410,10 @@
       "sportKey": "volleyball",
       "team1": "دانشگاه غیرانتفاعی توس مشهد",
       "team2": "دانشگاه صنعت نفت آبادان",
-      "status": "live",
+      "status": "finished",
       "time": "10:15",
       "date": "2026-08-25",
-      "score1": 0,
+      "score1": 2,
       "score2": 0,
       "periodFormat": "half",
       "half": 2,
@@ -4423,7 +4423,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
