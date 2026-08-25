@@ -1685,22 +1685,22 @@
           },
           {
             "name": "دانشگاه مازندران",
-            "p": 2,
+            "p": 3,
             "w": 0,
             "d": 2,
-            "l": 1,
-            "diff": "0",
+            "l": 2,
+            "diff": "-1",
             "pts": 2,
             "q": false
           },
           {
             "name": "دانشگاه تبریز",
-            "p": 2,
-            "w": 1,
+            "p": 3,
+            "w": 2,
             "d": 1,
             "l": 1,
-            "diff": "-4",
-            "pts": 3,
+            "diff": "-3",
+            "pts": 6,
             "q": false
           }
         ],
@@ -4052,7 +4052,7 @@
       "sportKey": "football",
       "team1": "دانشگاه مازندران",
       "team2": "دانشگاه تبریز",
-      "status": "live",
+      "status": "finished",
       "time": "9:00",
       "date": "2026-08-25",
       "score1": 2,
@@ -4065,7 +4065,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
