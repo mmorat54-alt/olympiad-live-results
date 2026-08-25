@@ -2407,12 +2407,12 @@
         "گروه D": [
           {
             "name": "دانشگاه صنعتی شاهرود",
-            "p": 2,
-            "w": 2,
+            "p": 3,
+            "w": 3,
             "d": 0,
             "l": 0,
-            "diff": "+15",
-            "pts": 6,
+            "diff": "+26",
+            "pts": 9,
             "q": false
           },
           {
@@ -2427,11 +2427,11 @@
           },
           {
             "name": "دانشگاه تبریز",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-11",
+            "l": 2,
+            "diff": "-22",
             "pts": 0,
             "q": false
           }
@@ -4667,6 +4667,27 @@
       "date": "2026-08-25",
       "score1": 27,
       "score2": 27,
+      "periodFormat": "half",
+      "half": 1,
+      "halfDurationMinutes": 20,
+      "clockRunning": false,
+      "clockBaseSeconds": 0,
+      "clockStartedAt": null,
+      "scorers": [],
+      "note": "",
+      "appliedToTable": true,
+      "streamEmbed": ""
+    },
+    {
+      "sport": "هندبال",
+      "sportKey": "handball",
+      "team1": "دانشگاه صنعتی شاهرود",
+      "team2": "دانشگاه تبریز",
+      "status": "finished",
+      "time": "",
+      "date": "2026-08-25",
+      "score1": 25,
+      "score2": 14,
       "periodFormat": "half",
       "half": 1,
       "halfDurationMinutes": 20,
