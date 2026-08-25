@@ -2119,22 +2119,22 @@
           },
           {
             "name": "دانشگاه ملی مهارت آذربایجان شرقی",
-            "p": 2,
+            "p": 3,
             "w": 0,
             "d": 0,
-            "l": 2,
-            "diff": "-5",
+            "l": 3,
+            "diff": "-11",
             "pts": 0,
             "q": false
           },
           {
             "name": "دانشگاه علامه طباطبایی",
-            "p": 2,
-            "w": 0,
+            "p": 3,
+            "w": 1,
             "d": 1,
             "l": 1,
-            "diff": "-2",
-            "pts": 1,
+            "diff": "+4",
+            "pts": 4,
             "q": false
           }
         ],
@@ -4284,11 +4284,11 @@
       "sportKey": "futsal",
       "team1": "دانشگاه ملی مهارت آذربایجان شرقی",
       "team2": "دانشگاه علامه طباطبایی",
-      "status": "live",
+      "status": "finished",
       "time": "11:00",
       "date": "2026-08-25",
       "score1": 2,
-      "score2": 2,
+      "score2": 8,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -4297,7 +4297,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
