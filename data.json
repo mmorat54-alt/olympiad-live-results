@@ -1811,22 +1811,22 @@
           },
           {
             "name": "دانشگاه کاشان",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 1,
-            "l": 0,
-            "diff": "0",
+            "l": 1,
+            "diff": "-6",
             "pts": 1,
             "q": false
           },
           {
             "name": "دانشگاه شهید بهشتی",
-            "p": 1,
-            "w": 1,
+            "p": 2,
+            "w": 2,
             "d": 0,
             "l": 0,
-            "diff": "+2",
-            "pts": 3,
+            "diff": "+8",
+            "pts": 6,
             "q": false
           }
         ]
@@ -4116,10 +4116,10 @@
       "sportKey": "football",
       "team1": "دانشگاه شهید بهشتی",
       "team2": "دانشگاه کاشان",
-      "status": "live",
+      "status": "finished",
       "time": "14:00",
       "date": "2026-08-25",
-      "score1": 3,
+      "score1": 7,
       "score2": 1,
       "periodFormat": "half",
       "half": 2,
@@ -4129,7 +4129,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
