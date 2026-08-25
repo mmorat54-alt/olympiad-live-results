@@ -1907,22 +1907,22 @@
           },
           {
             "name": "دانشگاه فرهنگیان اصفهان",
-            "p": 1,
+            "p": 2,
             "w": 0,
             "d": 0,
-            "l": 1,
-            "diff": "-6",
+            "l": 2,
+            "diff": "-13",
             "pts": 0,
             "q": false
           },
           {
             "name": "دانشگاه صنعتی امیر کبیر",
-            "p": 1,
-            "w": 0,
+            "p": 2,
+            "w": 1,
             "d": 0,
             "l": 1,
-            "diff": "-10",
-            "pts": 0,
+            "diff": "-3",
+            "pts": 3,
             "q": false
           }
         ],
@@ -4557,11 +4557,11 @@
       "sportKey": "basketball",
       "team1": "دانشگاه صنعتی امیر کبیر",
       "team2": "دانشگاه فرهنگیان اصفهان",
-      "status": "live",
+      "status": "finished",
       "time": "10:30",
       "date": "2026-08-25",
-      "score1": 0,
-      "score2": 0,
+      "score1": 85,
+      "score2": 78,
       "periodFormat": "half",
       "half": 2,
       "halfDurationMinutes": 20,
@@ -4570,7 +4570,7 @@
       "clockStartedAt": null,
       "scorers": [],
       "note": "",
-      "appliedToTable": false,
+      "appliedToTable": true,
       "streamEmbed": ""
     },
     {
