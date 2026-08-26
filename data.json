@@ -2200,8 +2200,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "ست"
+      },
+      "r16": []
     },
     {
       "key": "football",
@@ -2432,8 +2434,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "گل"
+      },
+      "r16": []
     },
     {
       "key": "basketball",
@@ -2634,8 +2638,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "امتیاز"
+      },
+      "r16": []
     },
     {
       "key": "futsal",
@@ -2836,8 +2842,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "گل"
+      },
+      "r16": []
     },
     {
       "key": "handball",
@@ -3028,8 +3036,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "گل"
+      },
+      "r16": []
     },
     {
       "key": "badminton",
@@ -3230,8 +3240,10 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "امتیاز"
+      },
+      "r16": []
     },
     {
       "key": "table-tennis",
@@ -3399,7 +3411,8 @@
       "tableConfig": {
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
-        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
+        "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز",
+        "scoreLabel": "گیم"
       },
       "finalStandings": [
         {
@@ -3442,7 +3455,8 @@
           "team": "دانشگاه شهید باهنر کرمان",
           "medal": null
         }
-      ]
+      ],
+      "r16": []
     },
     {
       "key": "taekwondo",
@@ -5937,7 +5951,7 @@
       "scorers": [],
       "note": "زمین چمن دانشگاه علوم پزشکی ",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/football/184416/%D9%81%D9%88%D8%AA%D8%A8%D8%A7%D9%84-%D9%85%D8%B1%D8%AD%D9%84%D9%87-%D8%AF%D9%88%D9%85-%D8%A7%D9%84%D9%85%D9%BE%DB%8C%D8%A7%D8%AF-%D8%AA%D9%87%D8%B1%D8%A7%D9%86-%D8%B9%D9%84%D9%85-%D9%88-%D8%B5%D9%86%D8%B9%D8%AA-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86"
     },
     {
       "sport": "فوتبال",
@@ -6000,7 +6014,7 @@
       "scorers": [],
       "note": "",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/futsal/184414/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D9%BE%DB%8C%D8%A7%D8%AF-%D8%B9%D9%84%D9%85%DB%8C-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C-%D8%AE%D9%88%D8%B2%D8%B3%D8%AA%D8%A7%D9%86-%D8%B9%D9%84%D9%85%DB%8C-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%DB%8C-%D8%A2%D8%B0%D8%B1%D8%A8%D8%A7%DB%8C%D8%AC%D8%A7%D9%86-%D8%B4%D8%B1%D9%82%DB%8C"
     },
     {
       "sport": "فوتسال",
@@ -6084,7 +6098,7 @@
       "scorers": [],
       "note": "",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/handball/184415/%D9%87%D9%86%D8%AF%D8%A8%D8%A7%D9%84-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86-%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C%D8%A7%D9%86-%D9%85%D8%A7%D8%B2%D9%86%D8%AF%D8%B1%D8%A7%D9%86"
     },
     {
       "sport": "هندبال",
@@ -6147,7 +6161,7 @@
       "scorers": [],
       "note": "",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/handball/184407/%D9%87%D9%86%D8%AF%D8%A8%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D9%BE%DB%8C%D8%A7%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-%D8%B9%D9%84%D8%A7%D9%85%D9%87-%D8%B7%D8%A8%D8%A7-%D8%B7%D8%A8%D8%A7%DB%8C%DB%8C"
     },
     {
       "sport": "والیبال",
@@ -6273,7 +6287,7 @@
       "scorers": [],
       "note": "",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/basketball/184406/%D8%A8%D8%B3%DA%A9%D8%AA%D8%A8%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D9%BE%DB%8C%D8%A7%D8%AF-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%A7%D9%85%DB%8C%D8%B1-%DA%A9%D8%A8%DB%8C%D8%B1-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF"
     },
     {
       "sport": "بسکتبال",
