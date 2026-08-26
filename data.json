@@ -17,9 +17,9 @@
       "gold": 0,
       "silver": 1,
       "bronze": 0,
-      "points": 14,
+      "points": 12,
       "fourth": 1,
-      "fifth": 2,
+      "fifth": 1,
       "sixth": 0
     },
     {
@@ -127,10 +127,10 @@
       "gold": 1,
       "silver": 0,
       "bronze": 2,
-      "points": 22,
+      "points": 21,
       "fourth": 0,
       "fifth": 0,
-      "sixth": 2
+      "sixth": 1
     },
     {
       "name": "دانشگاه فرهنگیان اصفهان",
@@ -148,8 +148,8 @@
       "sub": "",
       "gold": 1,
       "silver": 0,
-      "bronze": 2,
-      "points": 21,
+      "bronze": 1,
+      "points": 16,
       "fourth": 0,
       "fifth": 0,
       "sixth": 1
@@ -235,9 +235,9 @@
       "name": "دانشگاه پیام نور تهران",
       "sub": "",
       "gold": 0,
-      "silver": 1,
+      "silver": 0,
       "bronze": 0,
-      "points": 10,
+      "points": 3,
       "fourth": 1,
       "fifth": 0,
       "sixth": 0
@@ -533,8 +533,8 @@
       "sub": "",
       "gold": 0,
       "silver": 1,
-      "bronze": 2,
-      "points": 18,
+      "bronze": 1,
+      "points": 13,
       "fourth": 0,
       "fifth": 0,
       "sixth": 1
@@ -949,10 +949,10 @@
     {
       "name": "دانشگاه فرهنگیان تبریز",
       "sub": "",
-      "gold": 1,
+      "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 10,
+      "points": 0,
       "fourth": 0,
       "fifth": 0,
       "sixth": 0
@@ -3453,7 +3453,41 @@
         "hasDraw": true,
         "diffLabel": "تفاضل گل",
         "pointsHint": "برد = ۳ امتیاز، تساوی = ۱ امتیاز، باخت = ۰ امتیاز"
-      }
+      },
+      "finalStandings": [
+        {
+          "rank": 1,
+          "team": "دانشگاه فرهنگیان تبریز"
+        },
+        {
+          "rank": 2,
+          "team": "دانشگاه پیام نور تهران"
+        },
+        {
+          "rank": 3,
+          "team": "دانشگاه رازی کرمانشاه"
+        },
+        {
+          "rank": 3,
+          "team": "دانشگاه غیرانتفاعی زند شیراز"
+        },
+        {
+          "rank": 5,
+          "team": "دانشگاه تهران"
+        },
+        {
+          "rank": 6,
+          "team": "دانشگاه بوعلی سینا همدان"
+        },
+        {
+          "rank": 7,
+          "team": "دانشگاه خوارزمی"
+        },
+        {
+          "rank": 8,
+          "team": "دانشگاه شهید باهنر کرمان"
+        }
+      ]
     },
     {
       "key": "taekwondo",
