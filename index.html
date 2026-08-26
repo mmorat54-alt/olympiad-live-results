@@ -157,6 +157,9 @@
     width:6px; height:6px; border-radius:50%; background: var(--gold);
   }
   .group-table .pts{ font-family:'Oswald', sans-serif; font-weight:700; color: var(--text); }
+  .group-table tr.tier-1 td{ background: rgba(232,184,75,.12); }
+  .group-table tr.tier-2 td{ background: rgba(205,211,224,.10); }
+  .group-table tr.tier-3 td{ background: rgba(207,135,82,.10); }
   .groups-legend{ font-size:11px; color: var(--text-dim); margin-bottom: 22px; display:flex; align-items:center; gap:6px; }
   .groups-legend .dot-sm{ width:6px; height:6px; border-radius:50%; background: var(--gold); display:inline-block; }
 
@@ -779,6 +782,26 @@
     document.getElementById('subtab-bracket').classList.remove('active');
   }
 
+  function standingsTableHTML(rows){
+    const tRows = rows.map(r => {
+      const medal = String(r.medal || '');
+      const tier = medal.includes('طلا') ? '1' : medal.includes('نقره') ? '2' : medal.includes('برنز') ? '3' : '';
+      return `
+      <tr${tier ? ` class="tier-${tier}"` : ''}>
+        <td>${escFeed(r.rank)}</td>
+        <td style="text-align:right;">${escFeed(r.name)}</td>
+        <td style="text-align:right;">${escFeed(r.team)}</td>
+        <td>${escFeed(r.medal)}</td>
+        <td class="pts">${r.points ?? ''}</td>
+      </tr>`;
+    }).join('');
+    return `
+      <table class="group-table">
+        <thead><tr><th>رتبه</th><th style="text-align:right;">ورزشکار</th><th style="text-align:right;">دانشگاه</th><th>نتیجه</th><th>امتیاز</th></tr></thead>
+        <tbody>${tRows}</tbody>
+      </table>`;
+  }
+
   function renderIndividualSportPublic(sport){
     const categories = sport.categories || [];
     if (!categories.length){
@@ -787,6 +810,14 @@
       return;
     }
     document.getElementById('sportPanelContent').innerHTML = categories.map(cat => {
+      if (cat.resultMode === 'standings'){
+        return `
+          <div class="bracket-wrap" style="margin-bottom:16px;">
+            <div class="stage-title" style="margin-bottom:16px;">${escFeed(cat.name)}</div>
+            ${standingsTableHTML(cat.standings || [])}
+          </div>
+        `;
+      }
       const qfHTML = (cat.qf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
       const sfHTML = (cat.sf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
       const f = cat.final || ['', '', 0, 0, ''];
