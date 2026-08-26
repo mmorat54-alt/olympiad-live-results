@@ -735,6 +735,7 @@
     if (subtabsEl) subtabsEl.style.display = '';
     if (eyebrowEl) eyebrowEl.textContent = 'مرحله گروهی و مرحله حذفی';
 
+    const r16HTML = (sport.r16 || []).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
     const qfHTML = sport.qf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
     const sfHTML = sport.sf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
     const f = sport.final;
@@ -753,6 +754,11 @@
 
       <div class="sub-view" id="sub-bracket">
         <div class="bracket-wrap">
+          ${(sport.r16 && sport.r16.length) ? `
+          <div class="bracket-stage" data-stage="r16">
+            <div class="stage-title">یک‌هشتم نهایی</div>
+            <div class="stage-matches">${r16HTML}</div>
+          </div>` : ''}
           <div class="bracket-stage" data-stage="qf">
             <div class="stage-title">یک‌چهارم نهایی</div>
             <div class="stage-matches">${qfHTML}</div>
