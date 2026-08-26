@@ -3,58 +3,79 @@
     {
       "name": "دانشگاه صنعتی شریف",
       "sub": "",
-      "gold": 1,
+      "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 4,
+      "fourth": 0,
+      "fifth": 2,
+      "sixth": 0
     },
     {
       "name": "دانشگاه تهران",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 14,
+      "fourth": 1,
+      "fifth": 2,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فردوسی مشهد",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 15,
+      "fourth": 2,
+      "fifth": 1,
+      "sixth": 2
     },
     {
       "name": "دانشگاه اصفهان",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 17,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شیراز",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه تبریز",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "gold": 1,
+      "silver": 1,
+      "bronze": 1,
+      "points": 22,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علم و صنعت ایران",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
+      "gold": 1,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 21,
+      "fourth": 0,
+      "fifth": 2,
+      "sixth": 0
     },
     {
       "name": "دانشگاه یزد",
@@ -62,15 +83,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهید بهشتی",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "gold": 1,
+      "silver": 1,
+      "bronze": 1,
+      "points": 25,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی شاهرود",
@@ -78,7 +105,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 1
     },
     {
       "name": "دانشگاه شهید باهنر کرمان",
@@ -86,39 +116,54 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بوعلی سینا همدان",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 2,
+      "points": 22,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 2
     },
     {
       "name": "دانشگاه فرهنگیان اصفهان",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی زند شیراز",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 2,
+      "points": 21,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه علامه طباطبایی",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 13,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ایلام",
@@ -126,39 +171,54 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه کاشان",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 2,
+      "points": 12,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان مازندران",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 8,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه مازندران",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 2,
+      "points": 20,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه زنجان",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 10,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهید چمران اهواز",
@@ -166,23 +226,32 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور تهران",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 10,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه خوارزمی",
       "sub": "",
       "gold": 0,
-      "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "silver": 1,
+      "bronze": 2,
+      "points": 19,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان خراسان رضوی",
@@ -190,7 +259,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت همدان",
@@ -198,7 +270,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی پاسارگاد شیراز",
@@ -206,7 +281,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی خوزستان",
@@ -214,7 +292,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت آذربایجان شرقی",
@@ -222,7 +303,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علم و فناوری مازندران",
@@ -230,7 +314,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه خلیج فارس بوشهر",
@@ -238,7 +325,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور قم",
@@ -246,7 +336,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه زابل",
@@ -254,7 +347,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی خیام مشهد",
@@ -262,7 +358,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی تبریز",
@@ -270,7 +369,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بین‌المللی امام خمینی",
@@ -278,15 +380,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی امیر کبیر",
       "sub": "",
       "gold": 0,
-      "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "silver": 1,
+      "bronze": 1,
+      "points": 13,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه ملی مهارت یزد",
@@ -294,31 +402,43 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ارومیه",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه سمنان",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی اصفهان",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه قم",
@@ -326,7 +446,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی علوم و فنون بابل",
@@ -334,15 +457,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان تهران",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
+      "gold": 1,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 19,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهید رجایی تهران",
@@ -350,7 +479,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی تهران",
@@ -358,39 +490,54 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه گیلان",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
+      "gold": 1,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 26,
+      "fourth": 3,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی خواجه نصیرالدین",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 7,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان آذربایجان شرقی",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 8,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه رازی کرمانشاه",
       "sub": "",
       "gold": 0,
-      "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "silver": 1,
+      "bronze": 2,
+      "points": 18,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه گلستان",
@@ -398,15 +545,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت مازندران",
       "sub": "",
-      "gold": 0,
-      "silver": 0,
+      "gold": 1,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 17,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه لرستان",
@@ -414,7 +567,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی طلوع مهر قم",
@@ -422,7 +578,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی خراسان رضوی",
@@ -430,7 +589,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعت نفت آبادان",
@@ -438,7 +600,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی توس مشهد",
@@ -446,7 +611,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 2,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی طبری بابل",
@@ -454,7 +622,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علمی کاربردی آذربایجان شرقی",
@@ -462,7 +633,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه تحصیلات تکمیلی علوم پایه زنجان",
@@ -470,7 +644,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی آذربایجان غربی",
@@ -478,7 +655,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی کاربردی البرز شرقی شاهرود",
@@ -486,7 +666,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه اراک",
@@ -494,7 +677,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه محقق اردبیلی",
@@ -502,7 +688,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بجنورد",
@@ -510,7 +699,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بناب",
@@ -518,7 +710,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بیرجند",
@@ -526,7 +721,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه بین المللی امام رضا",
@@ -534,7 +732,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه تربت حیدریه",
@@ -542,7 +743,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه تربیت مدرس",
@@ -550,7 +754,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی ارگ جدید",
@@ -558,7 +765,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی اصفهان",
@@ -566,7 +776,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی البرز",
@@ -574,7 +787,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی بوشهر",
@@ -582,7 +798,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی فارس",
@@ -590,7 +809,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی قزوین",
@@ -598,7 +820,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی قم",
@@ -606,7 +831,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی مازندران",
@@ -614,7 +842,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی کردستان",
@@ -622,7 +853,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی حکیم طوس",
@@ -630,7 +864,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور استان گیلان",
@@ -638,7 +875,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی دانش پژوهان پیشرو",
@@ -646,7 +886,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان استان خوزستان",
@@ -654,7 +897,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی شمس تبریز",
@@ -662,7 +908,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهرکرد",
@@ -670,7 +919,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی شهید مطهری",
@@ -678,7 +930,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهید اشرفی اصفهانی",
@@ -686,15 +941,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان تبریز",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 10,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه حکیم سبزواری",
@@ -702,7 +963,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه نوشیروانی بابل",
@@ -710,15 +974,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 2,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی پیشتازان شیراز",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 10,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علوم کشاورزی و منابع طبیعی گرگان",
@@ -726,7 +996,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی رودکی تنکابن",
@@ -734,15 +1007,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه دامغان",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی آپادانا",
@@ -750,7 +1029,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 1,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه کردستان",
@@ -758,7 +1040,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی اراک",
@@ -766,15 +1051,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی اقبال لاهوری",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 7,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه جهرم",
@@ -782,7 +1073,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور کرمان",
@@ -790,7 +1084,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی کرمانشاه",
@@ -798,7 +1095,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی محلات",
@@ -806,7 +1106,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی سهند",
@@ -814,7 +1117,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان سیستان و بلوچستان",
@@ -822,7 +1128,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی میزان تبریز",
@@ -830,15 +1139,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور کرمانشاه",
       "sub": "",
       "gold": 0,
-      "silver": 0,
+      "silver": 1,
       "bronze": 0,
-      "points": 0
+      "points": 7,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان فارس",
@@ -846,7 +1161,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی اندیشه جهرم",
@@ -854,7 +1172,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور خوزستان",
@@ -862,7 +1183,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی آمل",
@@ -870,7 +1194,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان کردستان",
@@ -878,15 +1205,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی شهاب دانش قم",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان بوشهر",
@@ -894,7 +1227,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی سیرجان",
@@ -902,7 +1238,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور تبریز",
@@ -910,7 +1249,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی بینالود",
@@ -918,7 +1260,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور فارس",
@@ -926,7 +1271,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی حافظ",
@@ -934,7 +1282,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور خراسان",
@@ -942,7 +1293,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 1,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه جامع علمی و کاربردی کرمان",
@@ -950,7 +1304,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه گنبد کاووس",
@@ -958,7 +1315,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیر انتفاعی شهید رجایی قزوین",
@@ -966,7 +1326,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت ایلام",
@@ -974,7 +1337,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت شهید رجایی کاشان",
@@ -982,7 +1348,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی هشت بهشت اصفهان",
@@ -990,7 +1359,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان لرستان",
@@ -998,7 +1370,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علمی و کاربردی مرکزی",
@@ -1006,7 +1381,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی سراج تبریز",
@@ -1014,7 +1392,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی کار قزوین",
@@ -1022,7 +1403,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور بوشهر",
@@ -1030,7 +1414,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان کرمان",
@@ -1038,7 +1425,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 2,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی ادیب ساری",
@@ -1046,7 +1436,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور لرستان",
@@ -1054,7 +1447,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی سجاد",
@@ -1062,7 +1458,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی اسفراین",
@@ -1070,7 +1469,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه یاسوج",
@@ -1078,7 +1480,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی همدان",
@@ -1086,7 +1491,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه گرمسار",
@@ -1094,7 +1502,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه هرمزگان",
@@ -1102,7 +1513,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت فارس",
@@ -1110,7 +1524,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت کرمانشاه",
@@ -1118,7 +1535,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور شهرکرد",
@@ -1126,7 +1546,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان خراسان شمالی",
@@ -1134,7 +1557,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علوم و فنون دریایی خرمشهر",
@@ -1142,7 +1568,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فناوری‌های نوین آمل",
@@ -1150,7 +1579,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی جهاد دانشگاهی همدان",
@@ -1158,7 +1590,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه خاوران",
@@ -1166,7 +1601,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملایر",
@@ -1174,7 +1612,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت گیلان",
@@ -1182,7 +1623,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه نیشابور",
@@ -1190,7 +1634,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه سیستان و بلوچستان",
@@ -1198,7 +1645,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی سناباد گلبهار",
@@ -1206,7 +1656,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه هنر اسلامی تبریز",
@@ -1214,7 +1667,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ولی‌عصر (عج) رفسنجان",
@@ -1222,15 +1678,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه میبد",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت تهران",
@@ -1238,7 +1700,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور ارومیه",
@@ -1246,7 +1711,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی قوچان",
@@ -1254,7 +1722,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه مراغه",
@@ -1262,7 +1733,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی کاشمر",
@@ -1270,15 +1744,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علوم کشاورزی و منابع طبیعی ساری",
       "sub": "",
       "gold": 0,
       "silver": 0,
-      "bronze": 0,
-      "points": 0
+      "bronze": 1,
+      "points": 5,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی ارومیه",
@@ -1286,7 +1766,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 3,
+      "fourth": 1,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت کرمان",
@@ -1294,7 +1777,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 2,
+      "fourth": 0,
+      "fifth": 1,
+      "sixth": 0
     },
     {
       "name": "دانشگاه علوم کشاورزی خوزستان",
@@ -1302,7 +1788,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور ایلام",
@@ -1310,15 +1799,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شاهد",
       "sub": "",
-      "gold": 0,
+      "gold": 1,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 10,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی هاتف زاهدان",
@@ -1326,7 +1821,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه ملی مهارت آذربایجان غربی",
@@ -1334,7 +1832,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور مازندران",
@@ -1342,7 +1843,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور همدان",
@@ -1350,7 +1854,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور اصفهان",
@@ -1358,7 +1865,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه پیام نور گلستان",
@@ -1366,7 +1876,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه شهید مدنی آذربایجان",
@@ -1374,7 +1887,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 1,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 1
     },
     {
       "name": "دانشگاه عمران و توسعه همدان",
@@ -1382,7 +1898,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه سلمان فارسی کازرون",
@@ -1390,7 +1909,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه فرهنگیان کرمانشاه",
@@ -1398,7 +1920,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه صنعتی شیراز",
@@ -1406,7 +1931,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه آموزش عالی بوئین زهرا",
@@ -1414,7 +1942,10 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
     },
     {
       "name": "دانشگاه غیرانتفاعی عطار",
@@ -1422,7 +1953,21 @@
       "gold": 0,
       "silver": 0,
       "bronze": 0,
-      "points": 0
+      "points": 0,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0
+    },
+    {
+      "name": "دانشگاه فرهنگیان آذربایجان غربی",
+      "sub": "",
+      "gold": 0,
+      "silver": 0,
+      "bronze": 2,
+      "fourth": 0,
+      "fifth": 0,
+      "sixth": 0,
+      "points": 10
     }
   ],
   "sports": [
