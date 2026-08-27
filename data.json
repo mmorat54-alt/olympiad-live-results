@@ -5940,7 +5940,7 @@
       "status": "live",
       "time": "10:00",
       "date": "2026-08-27",
-      "score1": 1,
+      "score1": 2,
       "score2": 0,
       "periodFormat": "half",
       "half": 2,
@@ -5953,6 +5953,11 @@
           "team": 1,
           "name": "رسول ناصر بخت ",
           "minute": 1
+        },
+        {
+          "team": 1,
+          "name": "رسول آقابندی ",
+          "minute": 0
         }
       ],
       "note": "زمین چمن دانشگاه علوم پزشکی ",
