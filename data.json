@@ -2804,8 +2804,8 @@
         [
           "دانشگاه پیام نور استان قم",
           "دانشگاه ایلام",
-          null,
-          null,
+          8,
+          2,
           null
         ],
         [
@@ -2825,7 +2825,7 @@
           null
         ],
         [
-          "برنده یک‌چهارم ۳",
+          "دانشگاه پیام نور استان قم",
           "برنده یک‌چهارم ۴",
           null,
           null,
@@ -6080,7 +6080,7 @@
       "score1": 0,
       "score2": 0,
       "periodFormat": "half",
-      "half": 2,
+      "half": 1,
       "halfDurationMinutes": 20,
       "clockRunning": false,
       "clockBaseSeconds": 0,
@@ -6088,7 +6088,7 @@
       "scorers": [],
       "note": "",
       "appliedToTable": false,
-      "streamEmbed": ""
+      "streamEmbed": "https://www.anten.ir/futsal/184422/%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D9%BE%DB%8C%D8%A7%D8%AF-%D9%85%D8%B1%D8%AD%D9%84%D9%87-%D8%AF%D9%88%D9%85-%D8%A8%DB%8C%D9%86-%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C-%D8%A7%D9%85%D8%A7%D9%85-%D8%AE%D9%85%DB%8C%D9%86%DB%8C-%D9%82%D8%B2%D9%88%DB%8C%D9%86-%D8%B9%D9%84%D8%A7%D9%85%D9%87-%D8%B7%D8%A8%D8%A7%D8%B7%D8%A8%D8%A7%DB%8C%DB%8C"
     },
     {
       "sport": "هندبال",
