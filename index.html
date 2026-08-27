@@ -690,9 +690,14 @@
     feedClockInterval = setInterval(tickFeedTimers, 1000);
   }
 
-  function matchHTML(t1,s1,t2,s2, extra, cls){
-    const t1win = s1 > s2 || (s1 === s2 && !!extra);
-    const t2win = s2 > s1;
+  function matchHTML(t1,s1,t2,s2, extra, cls, winner){
+    let t1win, t2win;
+    if (winner === 1){ t1win = true; t2win = false; }
+    else if (winner === 2){ t1win = false; t2win = true; }
+    else {
+      t1win = s1 > s2 || (s1 === s2 && !!extra);
+      t2win = s2 > s1;
+    }
     const titleAttr = extra ? ` title="${extra}"` : '';
     return `<div class="match ${cls}"${titleAttr}>
       <div class="t-row ${t1win?'win':''}"><span class="t-name">${t1}</span><span class="t-score">${s1}</span></div>
@@ -735,12 +740,12 @@
     if (subtabsEl) subtabsEl.style.display = '';
     if (eyebrowEl) eyebrowEl.textContent = 'مرحله گروهی و مرحله حذفی';
 
-    const r16HTML = (sport.r16 || []).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
-    const qfHTML = sport.qf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
-    const sfHTML = sport.sf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
+    const r16HTML = (sport.r16 || []).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '', m[5])).join('');
+    const qfHTML = sport.qf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '', m[5])).join('');
+    const sfHTML = sport.sf.map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '', m[5])).join('');
     const f = sport.final;
-    const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '');
-    const championName = (f[2] >= f[3]) ? f[0] : f[1];
+    const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '', f[5]);
+    const championName = (f[5] === 2) ? f[1] : (f[5] === 1) ? f[0] : (f[2] >= f[3]) ? f[0] : f[1];
 
     const tableConfig = sport.tableConfig || { hasDraw: true, diffLabel: 'تفاضل گل' };
     const groupsHTML = Object.entries(sport.groups)
@@ -824,11 +829,11 @@
           </div>
         `;
       }
-      const qfHTML = (cat.qf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
-      const sfHTML = (cat.sf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '')).join('');
+      const qfHTML = (cat.qf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '', m[5])).join('');
+      const sfHTML = (cat.sf||[]).map(m => matchHTML(m[0], m[2], m[1], m[3], m[4], '', m[5])).join('');
       const f = cat.final || ['', '', 0, 0, ''];
-      const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '');
-      const championName = (f[2] >= f[3]) ? f[0] : f[1];
+      const finalHTML = matchHTML(f[0], f[2], f[1], f[3], f[4], '', f[5]);
+      const championName = (f[5] === 2) ? f[1] : (f[5] === 1) ? f[0] : (f[2] >= f[3]) ? f[0] : f[1];
       return `
         <div class="bracket-wrap" style="margin-bottom:16px;">
           <div class="stage-title" style="margin-bottom:16px;">${escFeed(cat.name)}</div>
